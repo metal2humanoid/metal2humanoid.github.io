@@ -77,7 +77,7 @@ Any browser or tool that can render HTML at 1200×630 works.
 
 ## Deployment
 
-The repository is an organization site (`metal2humanoid.github.io`), so GitHub Pages serves the `main` branch root as is. The `.nojekyll` file disables Jekyll processing. Nothing else is required; after pushing, the site updates within a minute or two.
+The repository is an organization site (`metal2humanoid.github.io`), so GitHub Pages serves the `main` branch root as is. The `.nojekyll` file disables Jekyll processing. The repository must be **public** for Pages to publish on a free organization plan (a private repository shows "Site not found"). After pushing, the site updates within a few minutes.
 
 If Pages is configured to deploy from a different branch or folder, either change it back to `main` / root in the repository settings or build into that folder.
 

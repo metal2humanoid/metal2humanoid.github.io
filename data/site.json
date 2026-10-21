@@ -1,21 +1,49 @@
 {
-  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' addresses are the single place to change who receives course and sponsorship email.",
+  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' is the single place to change who receives course and sponsorship email (name, email, title shown next to the address).",
   "name": "Metal2Humanoid",
   "tagline": "Building a Humanoid Robot from the Ground Up",
   "description": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course: a four-week, hands-on introduction to humanoid robotics, from motors and actuators to coordinated motion and learned behavior, built on an open-source humanoid.",
   "siteUrl": "https://metal2humanoid.github.io",
   "basePath": "",
   "nav": [
-    { "label": "Overview", "href": "index.html#overview" },
-    { "label": "Schedule", "href": "index.html#schedule" },
-    { "label": "Materials", "href": "index.html#materials" },
-    { "label": "Team", "href": "index.html#team" },
-    { "label": "Progress", "href": "index.html#progress" },
-    { "label": "Sponsor", "href": "sponsor.html" }
+    {
+      "label": "Overview",
+      "href": "index.html#overview"
+    },
+    {
+      "label": "Schedule",
+      "href": "index.html#schedule"
+    },
+    {
+      "label": "Materials",
+      "href": "index.html#materials"
+    },
+    {
+      "label": "Team",
+      "href": "index.html#team"
+    },
+    {
+      "label": "Progress",
+      "href": "index.html#progress"
+    },
+    {
+      "label": "Sponsor",
+      "href": "sponsor.html"
+    }
   ],
   "contact": {
-    "course": { "name": "Ben Zandonati", "email": "bzando@mit.edu", "subject": "Metal2Humanoid (IAP 2027) question" },
-    "sponsor": { "name": "Ben Zandonati", "email": "bzando@mit.edu", "subject": "Metal2Humanoid sponsorship" }
+    "course": {
+      "name": "Willie McClinton",
+      "email": "wbm3@mit.edu",
+      "title": "co-instructor",
+      "subject": "Metal2Humanoid (IAP 2027) question"
+    },
+    "sponsor": {
+      "name": "Willie McClinton",
+      "email": "wbm3@mit.edu",
+      "title": "co-instructor",
+      "subject": "Metal2Humanoid sponsorship"
+    }
   },
   "links": {
     "syllabusPdf": "assets/docs/Metal2Humanoid_IAP_2027_Syllabus.pdf",

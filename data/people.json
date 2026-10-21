@@ -6,10 +6,10 @@
       {
         "name": "Ben Zandonati",
         "affiliation": "MIT EECS",
-        "role": "Course proposer and lead instructor",
+        "role": "Co-instructor; course proposer",
         "email": "bzando@mit.edu",
         "showEmail": true,
-        "photo": null,
+        "photo": "assets/img/people/ben-zandonati.jpg",
         "links": []
       },
       {
@@ -18,21 +18,35 @@
         "role": "Co-instructor; curriculum development and robotics instruction",
         "email": "wbm3@mit.edu",
         "showEmail": true,
-        "photo": null,
+        "photo": "assets/img/people/willie-mcclinton.jpg",
         "links": [
-          { "label": "Website", "url": "https://wmcclinton.github.io/" },
-          { "label": "GitHub", "url": "https://github.com/wmcclinton" },
-          { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wbm3/" }
+          {
+            "label": "Website",
+            "url": "https://wmcclinton.github.io/"
+          },
+          {
+            "label": "GitHub",
+            "url": "https://github.com/wmcclinton"
+          },
+          {
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/in/wbm3/"
+          }
         ]
       },
       {
         "name": "Seth Robles",
         "affiliation": "MIT",
-        "role": "Co-instructor; undergraduate laboratory teaching assistant",
+        "role": "Co-instructor; laboratory teaching assistant",
         "email": "sirobles@mit.edu",
         "showEmail": true,
-        "photo": null,
-        "links": []
+        "photo": "assets/img/people/seth-robles.jpg",
+        "links": [
+          {
+            "label": "MIT profile",
+            "url": "https://engineering.mit.edu/people/seth-robles"
+          }
+        ]
       },
       {
         "name": "James Kim",
@@ -53,9 +67,12 @@
         "name": "Tomás Lozano-Pérez",
         "affiliation": "MIT EECS",
         "role": "Faculty sponsor",
-        "photo": null,
+        "photo": "assets/img/people/tomas-lozano-perez.jpg",
         "links": [
-          { "label": "Website", "url": "https://people.csail.mit.edu/tlp/" }
+          {
+            "label": "Website",
+            "url": "https://people.csail.mit.edu/tlp/"
+          }
         ]
       }
     ]
@@ -70,7 +87,22 @@
         "role": "Homebrew Robotics Network team",
         "photo": null,
         "links": [
-          { "label": "Discord", "url": "https://discord.gg/jGWZzaQwqt" }
+          {
+            "label": "Discord",
+            "url": "https://discord.gg/jGWZzaQwqt"
+          }
+        ]
+      },
+      {
+        "name": "Rob Britton",
+        "affiliation": "Fractional CTO; Founder and CEO, Sovernus",
+        "role": "Homebrew Robotics Network contributor",
+        "photo": null,
+        "links": [
+          {
+            "label": "LinkedIn",
+            "url": "https://www.linkedin.com/in/rob-britton-013856141/"
+          }
         ]
       }
     ],

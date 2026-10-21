@@ -88,7 +88,7 @@ function renderSponsor(data) {
     <h2 id="sponsor-contact-title">${esc(sponsors.contact.title)}</h2>
     <p>${esc(sponsors.contact.text)}</p>
     <p class="actions"><a class="button button-primary" href="${esc(href)}">${icons.mail} ${esc(sponsors.contact.buttonLabel)}</a></p>
-    <p class="muted small">Email: <a href="${esc(href)}">${esc(c.email)}</a> (${esc(c.name)}, course proposer and lead instructor).</p>
+    <p class="muted small">Email: <a href="${esc(href)}">${esc(c.email)}</a> (${esc(c.name)}${c.title ? `, ${esc(c.title)}` : ""}).</p>
   </div>
 </section>`;
 }

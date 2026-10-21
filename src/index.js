@@ -2,6 +2,19 @@
 const { esc, linkAttrs, fmtDate, initials, mailto, join, icons, statusPill } = require('./html');
 const { progression } = require('./svg');
 
+
+/** Render a media object {type:'video'|'image', src, poster, alt, width, height}. */
+function mediaTag(m, cls) {
+  if (!m) return '';
+  if (m.type === 'video') {
+    return `<video class="${esc(cls)}" controls muted loop playsinline preload="none" poster="${esc(m.poster)}" width="${esc(m.width)}" height="${esc(m.height)}" aria-label="${esc(m.alt)}">
+        <source src="${esc(m.src)}" type="video/mp4">
+        <a href="${esc(m.src)}">Download the video</a>
+      </video>`;
+  }
+  return `<img class="${esc(cls)}" src="${esc(m.src)}" alt="${esc(m.alt)}" width="${esc(m.width)}" height="${esc(m.height)}" loading="lazy" decoding="async">`;
+}
+
 const MATERIAL_LABELS = { slides: 'Slides', notes: 'Notes', recording: 'Recording', instructions: 'Lab instructions', code: 'Code', notebook: 'Notebook' };
 
 /** Links for a session/assignment materials object; nulls collapse into one "Coming soon". */
@@ -43,8 +56,10 @@ function renderHero(data) {
   const regAction = reg.open && reg.url
     ? `<a class="button button-primary" ${linkAttrs(reg.url)}>${esc(reg.label || 'Register')}</a>`
     : '';
-  return `<section class="hero" id="overview" aria-labelledby="hero-title">
-  <div class="wrap">
+  const heroImg = course.hero && course.hero.image;
+  return `<section class="hero${heroImg ? ' has-image' : ''}" id="overview" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+  <div class="hero-copy">
     <p class="eyebrow">${course.eyebrow.map((t) => `<span>${esc(t)}</span>`).join('<span class="sep" aria-hidden="true">·</span>')}</p>
     <h1 id="hero-title" class="hero-title">${esc(site.name)}</h1>
     <p class="hero-subtitle">${esc(site.tagline)}</p>
@@ -57,6 +72,11 @@ function renderHero(data) {
       ${regAction}
     </p>
     <p class="status-line"><strong>Status:</strong> ${esc(site.status.approvalNote)} ${esc(reg.note)} Questions: <a href="${esc(mailto(site.contact.course.email, site.contact.course.subject))}">${esc(site.contact.course.email)}</a>.</p>
+  </div>
+  ${heroImg ? `<figure class="hero-figure">
+    <img src="${esc(heroImg.src)}" alt="${esc(heroImg.alt)}" width="${esc(heroImg.width)}" height="${esc(heroImg.height)}" decoding="async" fetchpriority="high">
+    <figcaption>${esc(heroImg.caption)}</figcaption>
+  </figure>` : ''}
   </div>
   <div class="wrap wrap-wide">
     ${progression(course.stages, data.schedule.weeks)}
@@ -81,6 +101,7 @@ function renderLearn(course) {
     <h2 id="learn-title">What students will learn</h2>
     <ol class="stages">
       ${join(course.learn, (s) => `<li class="stage">
+        ${s.media ? `<figure class="stage-figure">${mediaTag(s.media, 'stage-media')}<figcaption>${esc(s.media.caption || '')}</figcaption></figure>` : ''}
         <p class="stage-week">Week ${s.week}</p>
         <h3 class="stage-title">${esc(s.from)} <span class="arrow" aria-hidden="true">→</span><span class="visually-hidden"> to </span>${esc(s.to)}</h3>
         <p>${esc(s.text)}</p>
@@ -173,10 +194,13 @@ function renderMaterials(data) {
         <ul class="resources">${join(g.items, item)}</ul>
       </div>`)}
     </div>
-    ${platform ? `<aside class="platform" aria-labelledby="platform-title">
+    ${platform ? `<aside class="platform${platform.media ? ' has-media' : ''}" aria-labelledby="platform-title">
+      ${platform.media ? `<figure class="platform-figure">${mediaTag(platform.media, 'platform-media')}<figcaption>${esc(platform.media.caption || '')}</figcaption></figure>` : ''}
+      <div class="platform-body">
       <h3 id="platform-title">${esc(platform.title)}</h3>
       <p>${esc(platform.text)}</p>
       <p class="inline-links">${platform.links.map((l) => `<a ${linkAttrs(l.url)}>${esc(l.label)} ${icons.external}</a>`).join(' ')}</p>
+      </div>
     </aside>` : ''}
   </div>
 </section>`;
@@ -222,7 +246,7 @@ function renderProgress(data) {
     </ul>
     <ol class="progress-list">
       ${join(entries, (e) => `<li class="progress-entry${e.media ? ' has-media' : ''}" id="${esc(e.id)}">
-        ${e.media ? `<figure class="progress-figure">${media(e.media)}<figcaption class="visually-hidden">${esc(e.title)}</figcaption></figure>` : ''}
+        ${e.media ? `<figure class="progress-figure">${mediaTag(e.media, 'progress-media')}<figcaption class="visually-hidden">${esc(e.title)}</figcaption></figure>` : ''}
         <div class="progress-body">
           <p class="progress-meta">${statusPill(e.status)}${e.tag ? ` <span class="status status-tag">${esc(e.tag)}</span>` : ''}${e.dateDisplay ? ` <span class="muted">${esc(e.dateDisplay)}</span>` : ''}</p>
           <h3 class="progress-title">${esc(e.title)}</h3>
@@ -232,6 +256,22 @@ function renderProgress(data) {
         </div>
       </li>`)}
     </ol>
+    ${progress.gallery && progress.gallery.items && progress.gallery.items.length ? `<div class="gallery-block" id="gallery">
+      <h3>${esc(progress.gallery.title)}</h3>
+      <p>${esc(progress.gallery.intro)}</p>
+      <ul class="gallery">
+        ${join(progress.gallery.items, (g) => `<li class="gallery-item">
+          <figure>
+            ${mediaTag(g.media, 'gallery-media')}
+            <figcaption>
+              <span class="gallery-title">${esc(g.title)}</span>${g.tag ? ` <span class="status status-tag">${esc(g.tag)}</span>` : ''}
+              <span class="gallery-caption">${esc(g.caption)}</span>
+              ${g.attribution ? `<span class="attribution">${esc(g.attribution)}</span>` : ''}
+            </figcaption>
+          </figure>
+        </li>`)}
+      </ul>
+    </div>` : ''}
   </div>
 </section>`;
 }

@@ -1,13 +1,16 @@
 # Handoff: confirmations and missing assets
 
-Status at handoff (October 21, 2026): the site builds, previews, and deploys from `main`. Everything below is either a fact to confirm or an asset to supply. None of it blocks publication; the public pages already read coherently with these items pending.
+Status at handoff (October 21, 2026): the site is live at https://metal2humanoid.github.io (repository made public and Pages enabled on your instruction). Everything below is either a fact to confirm or an asset to supply. None of it blocks publication; the public pages read coherently with these items pending.
 
 ## 1. Confirm before or soon after launch
 
 - [ ] **Approval status wording.** The site says "proposed … pending departmental approval; meeting times and rooms are provisional." Update `site.json → status.approvalNote` and the `Provisional` notes in `course.json` once EECS approves and rooms are assigned.
 - [ ] **Rooms and times.** `schedule.json → location`, `meetings`, and `course.json → facts` still say TBD / provisional. Office-hour time is "to be arranged."
 - [ ] **Registration link.** No real destination exists, so no registration button is shown. When one exists, set `site.json → status.registration` (`open`, `url`, `label`).
-- [ ] **Contact addresses.** Course and sponsor contact both point to Ben Zandonati (bzando@mit.edu) as supplied. Change in one place: `site.json → contact`.
+- [ ] **Contact addresses.** Course and sponsor contact both point to Willie McClinton (wbm3@mit.edu), as requested. Change in one place: `site.json → contact`.
+- [ ] **Instructor roles.** Ben Zandonati is listed as "Co-instructor; course proposer" (no longer "lead instructor"), Willie McClinton and Seth Robles as co-instructors, James Kim as co-instructor and hardware laboratory instructor. The syllabus PDF on the site still reads "Course proposer and lead instructor" for Ben; regenerate the PDF or accept the difference. The EECS proposal form requires the proposer to be the course leader and principal lecturer, so check the wording against what was submitted.
+- [ ] **Seth Robles' link.** His entry links to his MIT School of Engineering profile (engineering.mit.edu/people/seth-robles). That page lists him under Mechanical Engineering; the site shows only "MIT", per your instruction not to add a department.
+- [ ] **Rob Britton.** Added to Community contributors from the LinkedIn profile you supplied: "Fractional CTO; Founder and CEO, Sovernus", role "Homebrew Robotics Network contributor", LinkedIn link. Confirm the role wording and that he wants to be listed; no photo was available without a LinkedIn login.
 - [ ] **Emails shown on the Team section.** MIT addresses for Ben, Willie, and Seth are displayed because the public syllabus lists them. James Kim's personal Gmail is on record but hidden (`showEmail: false`); flip it only with his OK. The syllabus PDF on the site does contain all four addresses.
 - [ ] **Ben Zandonati's link.** His personal site (benzandonati.co.uk, listed on the MIT LIS group page) returned 404 at build time, so his entry has no link. Add a preferred URL to `people.json` when available.
 - [ ] **Name spelling.** The faculty sponsor is written "Tomás Lozano-Pérez" (as on his MIT homepage); the syllabus omits the accents. Pick one and keep it consistent.
@@ -19,13 +22,13 @@ Status at handoff (October 21, 2026): the site builds, previews, and deploys fro
 
 ## 2. Assets to supply (all optional; the site degrades gracefully without them)
 
-- [ ] **Headshots** for Ben Zandonati, Willie McClinton, Seth Robles, James Kim, Tomás Lozano-Pérez (square, ≥ 400 px, with permission). Drop in `assets/img/people/` and set `photo` in `people.json`. Initials are shown until then.
+- [ ] **Headshots.** Found online and added, so each person should confirm they are happy with the choice: Ben Zandonati (MIT LIS group page; only 135 px, replace with a larger file when possible), Tomás Lozano-Pérez (MIT LIS group page headshot), Seth Robles (MIT School of Engineering profile photo), Willie McClinton (USF College of Engineering news photo from 2020). Still initials: James Kim, Rob Britton, @clauses. Drop square files (≥ 400 px) in `assets/img/people/` and set `photo` in `people.json`.
 - [ ] **Pilot evidence (University of Miami).** Photos or a short video of the Berkeley Humanoid Lite legs standing, with date and photographer, plus consent from Ahmed and Zara if they appear. A slot exists in `progress.json` (`lab-robot-photos-willie`, `published: false`); the pilot text entry is already live and framed as reported status.
 - [ ] **@clauses project videos.** Verified public links (YouTube or similar) with dates and one-line captions. Slot: `community-videos-clauses`.
 - [ ] **Arm-building work (community contributor).** Public handle, consent, dates, photos or video. Slot: `arm-build-bot`. Nothing about this contributor is published now.
 - [ ] **Actuator tests, limb assembly, kit preparation.** Add entries as they are documented (photos, bench videos, short captions). The "before January" goal entry can be replaced with real results.
 - [ ] **Sponsor logos and approved outbound URLs** (with any sponsor-supplied tracking parameters) once sponsors are confirmed: `sponsors.json → confirmed`, logos in `assets/img/sponsors/`.
-- [ ] **Hero photograph (optional).** The hero currently uses the progression diagram, not a photo, which is appropriate until real build photos exist. Do not substitute stock or generated imagery.
+- [ ] **Renders and simulation clips (added).** The hero, the four stage cards, the hardware-platform box, and the gallery now use renders of the Berkeley Humanoid Lite design made from its published files (CC BY-SA 4.0) and MuJoCo clips from the standwalk training work (Berkeley Humanoid Lite, Asimov v0, Roboto Origin, and the Asimov-plus-BHL composite). Every caption says render or simulation and credits the model licenses. Check the captions, and replace renders with real build photos as they become available. Do not substitute stock or generated imagery.
 
 ## 3. Public resource URLs still pending
 
@@ -53,6 +56,6 @@ Draft material that exists but was **not** published: the `iap/` homework notebo
 ## 5. Repository and infrastructure notes
 
 - **Stray git repository in the parent folder.** `~/Documents/GitHub/.git` is a repository whose remote also points at `metal2humanoid/metal2humanoid.github.io` (it holds the original "first commit"). It was left untouched. This project now has its own `.git` inside `metal2humanoid.github.io/`, which is what was pushed. You may want to delete or re-point the parent `.git` so that `git` commands run from `~/Documents/GitHub` do not confuse the two.
-- **GitHub Pages is not live yet: the repository is private.** At push time (October 21, 2026) https://metal2humanoid.github.io returned GitHub's "Site not found" page, and the repository is not visible to the public API, so it is private. Pages cannot publish a private repository on a free organization plan. Make the repository public (Settings → General → Danger Zone → Change visibility), or upgrade the organization plan, then confirm Settings → Pages shows "Deploy from a branch" with `main` / `/ (root)`. The first build takes a few minutes. Everything committed here is intended to be public, including `HANDOFF.md`.
-- **Rebuild workflow.** `.github/workflows/build.yml` regenerates the HTML when `data/` or `src/` change. It needs write permission for the workflow token (Settings → Actions → General). If the organization disallows it, build locally.
+- **GitHub Pages is live.** On October 21, 2026, at your request, the repository was switched from private to public and Pages was enabled (deploy from `main`, root) using the GitHub token stored in your macOS keychain. Everything committed here is public, including this file.
+- **Rebuild workflow.** `.github/workflows/build.yml` regenerates the HTML when `data/` or `src/` change, but the organization's Actions policy currently gives workflow tokens read-only access (the repository-level setting cannot override it), so the commit step fails with a clear message. Either allow write permissions under Organization settings → Actions → General → Workflow permissions, or keep running `node build.js` locally before committing.
 - **No analytics or third-party scripts** are included. Add any tracking only with a privacy notice.

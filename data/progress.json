@@ -1,10 +1,22 @@
 {
-  "_doc": "Progress entries, newest first. 'status' is one of: demonstrated, in-progress, goal. Set 'published' to false to keep a slot in the file without rendering it. 'media' is null or {type: 'video'|'image', src, poster (video), alt, width, height}. Every entry needs a caption-quality 'text' and an 'attribution'.",
+  "_doc": "Progress entries, newest first. 'status' is one of: demonstrated, in-progress, goal. Set 'published' to false to keep a slot in the file without rendering it. 'media' is null or {type: 'video'|'image', src, poster (video), alt, width, height}. Every entry needs a caption-quality 'text' and an 'attribution'. 'gallery.items' are lighter entries for the grid at the end of the section: {title, tag, caption, attribution, media}.",
   "intro": "What has been built so far, with honest status labels. Entries are added as results are documented; every photo or video carries a caption and attribution. Simulation results are labeled as simulation.",
   "legend": [
-    { "status": "demonstrated", "label": "Demonstrated", "text": "Shown working, with evidence linked here." },
-    { "status": "in-progress", "label": "In progress", "text": "Underway; results reported by the team but not yet documented here." },
-    { "status": "goal", "label": "Goal", "text": "Planned or aspirational; not yet started or not guaranteed." }
+    {
+      "status": "demonstrated",
+      "label": "Demonstrated",
+      "text": "Shown working, with evidence linked here."
+    },
+    {
+      "status": "in-progress",
+      "label": "In progress",
+      "text": "Underway; results reported by the team but not yet documented here."
+    },
+    {
+      "status": "goal",
+      "label": "Goal",
+      "text": "Planned or aspirational; not yet started or not guaranteed."
+    }
   ],
   "entries": [
     {
@@ -104,5 +116,120 @@
       "attribution": "",
       "media": null
     }
-  ]
+  ],
+  "gallery": {
+    "title": "Simulation and render gallery",
+    "intro": "Clips from the training scaffold the course assignments build on, rendered in MuJoCo, plus renders of the open hardware design. Everything here is simulation or CAD; no hardware result is implied.",
+    "items": [
+      {
+        "title": "Four open robots, one scaffold",
+        "tag": "Simulation",
+        "caption": "Walking policies trained with the same PPO pipeline on four open embodiments: Berkeley Humanoid Lite (top left), Asimov v0 legs (top right), Roboto Origin (bottom left), and an experimental composite of Asimov legs with the BHL torso (bottom right).",
+        "attribution": "Simulation: Willie McClinton. Models: Berkeley Humanoid Lite (CC BY-SA 4.0), Asimov v0 by Asimov Inc (CERN-OHL-S 2.0), Roboto Origin by RoboParty (GPL-3.0).",
+        "media": {
+          "type": "video",
+          "src": "assets/video/montage-4.mp4",
+          "poster": "assets/img/montage-4-poster.jpg",
+          "alt": "Two-by-two grid of four simulated humanoids walking in MuJoCo.",
+          "width": 1024,
+          "height": 700
+        }
+      },
+      {
+        "title": "Watching the motors work",
+        "tag": "Simulation",
+        "caption": "A walking policy on the Asimov v0 legs with every joint's torque shown as a share of its limit, the kind of readout students use to reason about actuator sizing.",
+        "attribution": "Simulation: Willie McClinton. Model: Asimov v0 by Asimov Inc (CERN-OHL-S 2.0).",
+        "media": {
+          "type": "video",
+          "src": "assets/video/asimov-walk-torques.mp4",
+          "poster": "assets/img/asimov-walk-torques-poster.jpg",
+          "alt": "Simulated bipedal legs walking with a torque readout panel in the corner.",
+          "width": 800,
+          "height": 600
+        }
+      },
+      {
+        "title": "Lower body first",
+        "tag": "Simulation",
+        "caption": "The Week 3 build order in simulation: the Berkeley Humanoid Lite legs and torso walking before the arms are added.",
+        "attribution": "Simulation: Willie McClinton. Model: Berkeley Humanoid Lite (CC BY-SA 4.0).",
+        "media": {
+          "type": "video",
+          "src": "assets/video/bhl-noarms-walk.mp4",
+          "poster": "assets/img/bhl-noarms-walk-poster.jpg",
+          "alt": "Simulated Berkeley Humanoid Lite without arms walking on a checkered floor.",
+          "width": 640,
+          "height": 438
+        }
+      },
+      {
+        "title": "Roboto Origin walking",
+        "tag": "Simulation",
+        "caption": "The same training code on RoboParty's open-source Roboto Origin, a larger humanoid, to check that the scaffold is not tied to one robot.",
+        "attribution": "Simulation: Willie McClinton. Model: Roboto Origin by RoboParty (GPL-3.0).",
+        "media": {
+          "type": "video",
+          "src": "assets/video/atom01-walk.mp4",
+          "poster": "assets/img/atom01-walk-poster.jpg",
+          "alt": "Simulated Roboto Origin humanoid walking on a checkered floor.",
+          "width": 640,
+          "height": 438
+        }
+      },
+      {
+        "title": "An experimental composite",
+        "tag": "Simulation",
+        "caption": "Asimov v0 legs carrying the Berkeley Humanoid Lite torso and arms. The course repository mixes open designs to test how far one scaffold generalizes.",
+        "attribution": "Simulation: Willie McClinton. Models: Asimov v0 (CERN-OHL-S 2.0), Berkeley Humanoid Lite (CC BY-SA 4.0).",
+        "media": {
+          "type": "video",
+          "src": "assets/video/frankenstein-v1-walk.mp4",
+          "poster": "assets/img/frankenstein-v1-walk-poster.jpg",
+          "alt": "Simulated composite humanoid walking on a checkered floor.",
+          "width": 640,
+          "height": 438
+        }
+      },
+      {
+        "title": "Lower-body assembly",
+        "tag": "Render",
+        "caption": "Legs and pelvis of the Berkeley Humanoid Lite design, the target of the Week 3 lab.",
+        "attribution": "Render by the course team from the published model. Berkeley Humanoid Lite design (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
+        "media": {
+          "type": "image",
+          "src": "assets/img/renders/bhl-lower-body.jpg",
+          "alt": "Render of the Berkeley Humanoid Lite lower body: two legs and a pelvis frame.",
+          "width": 960,
+          "height": 640
+        }
+      },
+      {
+        "title": "Inside the actuator",
+        "tag": "Render",
+        "caption": "Exploded view of the printed 6512 cycloidal actuator used at the hips and knees: housings, motor, shafts, cycloidal disk, and output.",
+        "attribution": "Render by the course team from the published part files. Berkeley Humanoid Lite design (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
+        "media": {
+          "type": "image",
+          "src": "assets/img/renders/actuator-exploded-wide.jpg",
+          "alt": "Exploded render of a cycloidal actuator with parts spaced along its axis.",
+          "width": 960,
+          "height": 640
+        }
+      },
+      {
+        "title": "The full humanoid",
+        "tag": "Render",
+        "caption": "Front view of the complete Berkeley Humanoid Lite design: the Week 4 integration target.",
+        "attribution": "Render by the course team from the published model. Berkeley Humanoid Lite design (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
+        "media": {
+          "type": "image",
+          "src": "assets/img/renders/bhl-humanoid-front-wide.jpg",
+          "alt": "Front render of the complete Berkeley Humanoid Lite robot.",
+          "width": 960,
+          "height": 640
+        }
+      }
+    ]
+  }
 }

@@ -46,9 +46,10 @@ Conventions used throughout the data files:
 - **Status values.** Materials: `available`, `coming`, `in-progress`, `external`. Progress: `demonstrated`, `in-progress`, `goal`. The build rejects anything else.
 - **Provisional facts.** Course facts can carry a `note` (for example `"Provisional"`) that renders as a small label.
 - **Registration.** `site.json → status.registration`: set `open` to `true` and provide a `url` only when a real registration destination exists; until then the status note is shown with the contact email.
-- **Contact addresses** live only in `site.json → contact` (`course` and `sponsor`). Every mailto link on the site is derived from them.
+- **Contact addresses** live only in `site.json → contact` (`course` and `sponsor`, each with `name`, `email`, `title`). Every mailto link on the site is derived from them.
 - **People.** `photo` is a path under `assets/img/people/` or `null` (initials are shown). `links` should be verified public pages. `showEmail` hides an address without deleting it. Community contributors are listed by public handle; do not add names, titles, or roles the person has not confirmed.
-- **Progress entries** need caption-quality `text` and an `attribution`. `published: false` keeps a slot in the file without rendering it. Label simulation results as simulation (`tag`).
+- **Progress entries** need caption-quality `text` and an `attribution`. `published: false` keeps a slot in the file without rendering it. Label simulation results as simulation (`tag`). `progress.json → gallery.items` is the lighter grid at the end of the section (`title`, `tag`, `caption`, `attribution`, `media`).
+- **Images on the course page.** `course.json → hero.image`, `learn[].media` (one figure per stage card) and `materials.json → platform.media` are optional `{type, src, poster, alt, width, height, caption}` objects; remove them to fall back to text-only layouts.
 - **Sponsors.** `sponsors.json → confirmed` lists confirmed sponsors only: `{ "name", "kind": "financial" | "in-kind" | "mentorship", "url", "logo", "note" }`. Logos go in `assets/img/sponsors/` (SVG or PNG, about 400 px wide). `url` is emitted verbatim, so a sponsor's own tracking parameters can be included. Faculty sponsorship stays in `people.json` and is never listed here.
 - **Site base path.** For a project-page deployment under `https://<org>.github.io/<repo>/`, set `"basePath": "/<repo>"` and `siteUrl` in `site.json`. Internal links are relative, so the pages work under any subpath; `basePath` is used for canonical URLs, the social image, and the 404 page.
 
@@ -62,6 +63,12 @@ ffmpeg -ss 1 -i assets/video/clip.mp4 -frames:v 1 -q:v 3 assets/img/clip-poster.
 ```
 
 Every asset needs a meaningful caption, a date if known, and attribution. Third-party material (for example Berkeley Humanoid Lite files, CC BY-SA 4.0) must keep its attribution and license.
+
+### Renders and simulation clips
+
+- `assets/img/renders/` are renders of the Berkeley Humanoid Lite design made with `tools/render-platform.py` (MuJoCo) from the project's published robot description and 6512 actuator part files (CC BY-SA 4.0). They are labeled as renders on the site and are not photographs of a course build.
+- `assets/video/` clips come from the course's MuJoCo training scaffold (PPO stand and walk policies). Models and licenses: Berkeley Humanoid Lite (CC BY-SA 4.0), Asimov v0 by Asimov Inc (CERN-OHL-S 2.0), Roboto Origin by RoboParty (GPL-3.0). Keep these attributions when reusing the clips.
+- `assets/img/people/` holds headshots; sources are listed in `HANDOFF.md`.
 
 ### Social-sharing image
 
@@ -77,11 +84,11 @@ Any browser or tool that can render HTML at 1200×630 works.
 
 ## Deployment
 
-The repository is an organization site (`metal2humanoid.github.io`), so GitHub Pages serves the `main` branch root as is. The `.nojekyll` file disables Jekyll processing. The repository must be **public** for Pages to publish on a free organization plan (a private repository shows "Site not found"). After pushing, the site updates within a few minutes.
+The repository is an organization site (`metal2humanoid.github.io`), so GitHub Pages serves the `main` branch root as is. The `.nojekyll` file disables Jekyll processing. The repository is public and Pages is enabled (Settings → Pages: deploy from `main`, root). A private repository on a free organization plan shows "Site not found". After pushing, the site updates within a few minutes.
 
 If Pages is configured to deploy from a different branch or folder, either change it back to `main` / root in the repository settings or build into that folder.
 
-The rebuild workflow needs "Read and write permissions" for workflow tokens (repository settings → Actions → General → Workflow permissions). If that is not allowed by the organization, run `node build.js` locally and commit the output instead; the site still deploys.
+The rebuild workflow needs "Read and write permissions" for workflow tokens. On this organization that setting is controlled at the organization level (Organization settings → Actions → General → Workflow permissions) and is currently read-only, so the workflow cannot commit; until that changes, run `node build.js` locally and commit the output. The site deploys either way.
 
 ## Design notes
 

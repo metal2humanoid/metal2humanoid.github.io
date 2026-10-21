@@ -17,13 +17,21 @@
     {
       "title": "Lecture notes and slides",
       "items": [
-        { "title": "Slides and notes for the eight lectures", "status": "coming", "note": "Posted in the schedule before each session." }
+        {
+          "title": "Slides and notes for the eight lectures",
+          "status": "coming",
+          "note": "Posted in the schedule before each session."
+        }
       ]
     },
     {
       "title": "Lab instructions",
       "items": [
-        { "title": "Guides for the four hardware labs", "status": "coming", "note": "Actuator module, limb, lower body, and system integration." }
+        {
+          "title": "Guides for the four hardware labs",
+          "status": "coming",
+          "note": "Actuator module, limb, lower body, and system integration."
+        }
       ]
     },
     {
@@ -35,7 +43,11 @@
           "status": "in-progress",
           "note": "Open curriculum repository with robot embodiment files and notes; assignment notebooks will be published here."
         },
-        { "title": "Assignment notebooks (four weekly assignments)", "status": "coming", "note": "Scaffolded, fill-in-the-blank Python exercises." }
+        {
+          "title": "Assignment notebooks (four weekly assignments)",
+          "status": "coming",
+          "note": "Scaffolded, fill-in-the-blank Python exercises."
+        }
       ]
     },
     {
@@ -53,7 +65,10 @@
           "status": "external",
           "attribution": "Berkeley Humanoid Lite project documentation"
         },
-        { "title": "Course-specific assembly notes and kit checklists", "status": "coming" }
+        {
+          "title": "Course-specific assembly notes and kit checklists",
+          "status": "coming"
+        }
       ]
     },
     {
@@ -71,13 +86,21 @@
           "status": "external",
           "attribution": "Berkeley Humanoid Lite project; hardware files are released under CC BY-SA 4.0"
         },
-        { "title": "Course kit bill of materials", "status": "coming", "note": "Published once the kit is finalized." }
+        {
+          "title": "Course kit bill of materials",
+          "status": "coming",
+          "note": "Published once the kit is finalized."
+        }
       ]
     },
     {
       "title": "Simulation setup",
       "items": [
-        { "title": "Simulation environment setup guide", "status": "coming", "note": "Python-based; instructions will be posted before Week 2." },
+        {
+          "title": "Simulation environment setup guide",
+          "status": "coming",
+          "note": "Python-based; instructions will be posted before Week 2."
+        },
         {
           "title": "Berkeley Humanoid Lite: training environment",
           "url": "https://berkeley-humanoid-lite.gitbook.io/docs/getting-started-with-software/training-environment",
@@ -91,10 +114,31 @@
     "title": "Hardware platform",
     "text": "The course builds on Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley, with modular 3D-printed gearboxes and widely available components. Its software is released under the MIT License and its hardware files under CC BY-SA 4.0.",
     "links": [
-      { "label": "Project website", "url": "https://lite.berkeley-humanoid.org/" },
-      { "label": "Documentation", "url": "https://berkeley-humanoid-lite.gitbook.io/docs" },
-      { "label": "Code on GitHub", "url": "https://github.com/HybridRobotics/Berkeley-Humanoid-Lite" },
-      { "label": "Paper (arXiv:2504.17249)", "url": "https://arxiv.org/abs/2504.17249" }
-    ]
+      {
+        "label": "Project website",
+        "url": "https://lite.berkeley-humanoid.org/"
+      },
+      {
+        "label": "Documentation",
+        "url": "https://berkeley-humanoid-lite.gitbook.io/docs"
+      },
+      {
+        "label": "Code on GitHub",
+        "url": "https://github.com/HybridRobotics/Berkeley-Humanoid-Lite"
+      },
+      {
+        "label": "Paper (arXiv:2504.17249)",
+        "url": "https://arxiv.org/abs/2504.17249"
+      }
+    ],
+    "media": {
+      "type": "video",
+      "src": "assets/video/bhl-turntable.mp4",
+      "poster": "assets/img/bhl-turntable-poster.jpg",
+      "alt": "Turntable render of the Berkeley Humanoid Lite robot model rotating through a full turn.",
+      "width": 960,
+      "height": 720,
+      "caption": "Turntable of the Berkeley Humanoid Lite model, rendered from the published robot description (CC BY-SA 4.0)."
+    }
   }
 }

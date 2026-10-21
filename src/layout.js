@@ -44,7 +44,7 @@ function page(opts) {
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
 <meta name="twitter:image" content="${esc(abs(site.social.image))}">
-<meta name="theme-color" content="#FBFAF7">
+${site.draft && site.draft.enabled ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<meta name="theme-color" content="#FBFAF7">
 <link rel="icon" href="${root}assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="${root}assets/img/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="${root}assets/img/apple-touch-icon.png">
@@ -61,6 +61,7 @@ function page(opts) {
     </nav>
   </div>
 </header>
+${site.draft && site.draft.enabled ? `<div class="draft-banner" role="note"><div class="wrap">${esc(site.draft.notice)}</div></div>` : ''}
 <main id="main" tabindex="-1">
 ${body}
 </main>

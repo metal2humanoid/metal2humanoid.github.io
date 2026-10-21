@@ -23,12 +23,12 @@ jobs:
         run: node build.js
       - name: Commit regenerated pages
         run: |
-          if git diff --quiet -- index.html sponsor.html 404.html; then
+          if git diff --quiet -- index.html sponsor.html 404.html robots.txt sitemap.txt; then
             echo "Generated pages already up to date."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html sponsor.html 404.html
+          git add index.html sponsor.html 404.html robots.txt sitemap.txt
           git commit -m "Rebuild generated pages from data [skip ci]"
-          git push || { echo "::error::Push failed. Allow write access for workflows (Organization Settings → Actions → General → Workflow permissions), or run 'node build.js' locally and commit index.html, sponsor.html and 404.html."; exit 1; }
+          git push || { echo "::error::Push failed. Allow write access for workflows (Organization Settings → Actions → General → Workflow permissions), or run 'node build.js' locally and commit the generated files."; exit 1; }

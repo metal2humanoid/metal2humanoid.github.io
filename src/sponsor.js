@@ -48,6 +48,16 @@ function renderSponsor(data) {
   </div>
 </section>
 
+${sponsors.whereItGoes ? `<section class="section" id="where" aria-labelledby="where-title">
+  <div class="wrap">
+    <h2 id="where-title">${esc(sponsors.whereItGoes.title)}</h2>
+    <p>${esc(sponsors.whereItGoes.intro)}</p>
+    <ul class="benefits">
+      ${join(sponsors.whereItGoes.items, (i) => `<li>${esc(i)}</li>`)}
+    </ul>
+  </div>
+</section>` : ''}
+
 <section class="section" id="benefits" aria-labelledby="benefits-title">
   <div class="wrap">
     <h2 id="benefits-title">${esc(sponsors.benefits.title)}</h2>
@@ -72,6 +82,7 @@ function renderSponsor(data) {
         <ul>${join(sponsors.bigCompanies.community.items, (i) => `<li>${esc(i)}</li>`)}</ul>
       </div>
     </div>
+    ${sponsors.bigCompanies.partnerNote ? `<p class="partner-note">${esc(sponsors.bigCompanies.partnerNote)}</p>` : ''}
   </div>
 </section>
 

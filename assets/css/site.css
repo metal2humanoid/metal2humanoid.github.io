@@ -342,6 +342,11 @@ img.gallery-media { background: var(--bg-alt); }
 .gallery-caption { display: block; color: var(--muted); margin-top: 0.15rem; font-size: 0.9rem; }
 .gallery-item .attribution { display: block; margin-top: 0.25rem; }
 
+
+/* Draft banner and sponsor notes -------------------------------------------- */
+.draft-banner { background: var(--warn-tint); color: var(--warn); border-bottom: 1px solid #E8D9A8; font-size: 0.9rem; padding: 0.5rem 0; }
+.partner-note { margin-top: 1.4rem; padding: 1rem 1.2rem; border-left: 3px solid var(--accent); background: var(--surface); }
+
 /* Footer ------------------------------------------------------------------- */
 .site-footer { border-top: 1px solid var(--rule); padding: 2rem 0 2.5rem; font-size: 0.9rem; color: var(--muted); }
 .footer-links a { margin-right: 1.2rem; white-space: nowrap; }

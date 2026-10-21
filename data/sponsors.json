@@ -1,25 +1,52 @@
 {
-  "_doc": "Content for sponsor.html. 'confirmed' lists only confirmed sponsors: {name, kind ('financial' | 'in-kind' | 'mentorship'), url (may include the sponsor's own tracking parameters), logo (path under assets/img/sponsors/ or null), note}. Prospects, outreach status, and budget targets never belong in this file.",
+  "_doc": "Content for sponsor.html. 'confirmed' lists only confirmed sponsors: {name, kind ('financial' | 'in-kind' | 'mentorship'), url (may include the sponsor's own tracking parameters), logo (path under assets/img/sponsors/ or null), note}. Prospects, outreach status, and budget targets never belong in this file. 'whereItGoes' answers what contributions are used for (no amounts); 'bigCompanies.partnerNote' is the hardware-partner paragraph.",
   "headline": "Help students build humanoid robots from the ground up.",
-  "lede": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course in which about twenty students work in teams to assemble, program, and test components of an open-source humanoid based on Berkeley Humanoid Lite. The course requests no departmental funding: the organizing team is arranging hardware and materials through sponsors and parts donors.",
+  "lede": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course in which about twenty students work in teams to build actuators, assemble them into a humanoid platform derived from Berkeley Humanoid Lite, and program it. The course requests no departmental funding: the organizing team is arranging hardware and materials through sponsors and parts donors, and the adapted design and course materials are released openly.",
   "whatSupportProvides": {
     "title": "What support makes possible",
     "items": [
-      { "title": "Reusable hardware", "text": "Actuator modules, limbs, and shared humanoid builds that are used across the four labs and kept for future offerings and community builds." },
-      { "title": "Prepared lab kits", "text": "Pre-fabricated and pre-sourced components, spares, and tools, so that 90-minute labs can focus on assembly, wiring, and testing rather than fabrication." },
-      { "title": "Documented learning resources", "text": "Lab guides, notebooks, and build notes published openly so that other groups can repeat the course." }
+      {
+        "title": "Reusable hardware",
+        "text": "Actuator modules, limbs, and shared humanoid builds that are used across the four labs and kept for future offerings and community builds."
+      },
+      {
+        "title": "Prepared lab kits",
+        "text": "Pre-fabricated and pre-sourced components, spares, and tools, so that 90-minute labs can focus on assembly, wiring, and testing rather than fabrication."
+      },
+      {
+        "title": "Documented learning resources",
+        "text": "Lab guides, notebooks, and build notes published openly so that other groups can repeat the course."
+      }
     ]
   },
   "needs": {
     "title": "What we need",
-    "intro": "Support can be in-kind or financial. Hardware and tools are the most immediate needs.",
+    "intro": "In-kind hardware is the most useful form of support: actuators and motors above all, then compute, printers and fabrication, tools and test equipment. Financial support covers what in-kind contributions do not, such as kit preparation, consumables, spares, and shipping.",
     "items": [
-      { "title": "Actuators, motors, encoders, and sensors", "text": "Joint actuators or motor-plus-gearbox modules, magnetic encoders, IMUs, and load sensing for the lab builds and spares." },
-      { "title": "Batteries, electronics, compute, and motor controllers", "text": "Battery packs and management, power distribution, motor controller boards, CAN interfaces, and on-board or bench compute." },
-      { "title": "Fabrication, machining, printing, and materials", "text": "3D printing capacity and filament, laser-cut or machined interface parts, fasteners, bearings, and structural stock for kit preparation." },
-      { "title": "Tools, test equipment, spare parts, and consumables", "text": "Bench power supplies, multimeters, soldering stations, hand tools, robot support fixtures, cabling, and connectors." },
-      { "title": "Financial support", "text": "Funds for components, kit preparation, and replacement parts, used where in-kind contributions do not cover a need." },
-      { "title": "Technical mentorship and engineering support", "text": "Review of designs and lab procedures, help with motor control and firmware, and occasional guest participation in labs." }
+      {
+        "title": "Actuators, motors, encoders, and sensors",
+        "text": "Joint actuators or motor-plus-gearbox modules, magnetic encoders, IMUs, and load sensing for the lab builds and spares."
+      },
+      {
+        "title": "Batteries, electronics, compute, and motor controllers",
+        "text": "Battery packs and management, power distribution, motor controller boards, CAN interfaces, and on-board or bench compute."
+      },
+      {
+        "title": "Fabrication, machining, printing, and materials",
+        "text": "3D printing capacity and filament, laser-cut or machined interface parts, fasteners, bearings, and structural stock for kit preparation."
+      },
+      {
+        "title": "Tools, test equipment, spare parts, and consumables",
+        "text": "Bench power supplies, multimeters, soldering stations, hand tools, robot support fixtures, cabling, and connectors."
+      },
+      {
+        "title": "Financial support",
+        "text": "Funds for components, kit preparation, and replacement parts, used where in-kind contributions do not cover a need."
+      },
+      {
+        "title": "Technical mentorship and engineering support",
+        "text": "Review of designs and lab procedures, help with motor control and firmware, and occasional guest participation in labs."
+      }
     ]
   },
   "benefits": {
@@ -38,12 +65,23 @@
     "intro": "Open robotics education and the companies that make robotics hardware need each other. The relationship works best when each side contributes what it is good at.",
     "companies": {
       "title": "Companies contribute",
-      "items": ["Components and development kits", "Manufacturing and design-for-manufacturing expertise", "Tools, test equipment, and compute", "Engineering time and resources"]
+      "items": [
+        "Components and development kits",
+        "Manufacturing and design-for-manufacturing expertise",
+        "Tools, test equipment, and compute",
+        "Engineering time and resources"
+      ]
     },
     "community": {
       "title": "The community contributes",
-      "items": ["Experimentation with those technologies in real builds", "Open documentation that others can follow", "Honest, practical feedback from hands-on use", "People who learn to build with those technologies"]
-    }
+      "items": [
+        "Experimentation with those technologies in real builds",
+        "Open documentation that others can follow",
+        "Honest, practical feedback from hands-on use",
+        "People who learn to build with those technologies"
+      ]
+    },
+    "partnerNote": "For an actuator or motor manufacturer, the partnership can go further: the course platform and its open design can be built around your actuators, with published assembly guides, test data, and student builds that use them, and direct feedback from a cohort learning on your hardware."
   },
   "confirmed": [],
   "confirmedTitle": "Current sponsors",
@@ -53,5 +91,16 @@
     "title": "Get in touch",
     "text": "Tell us what you can offer and any requirements your organization has for recognition, reporting, or shipping. We will reply with specifics about where it would be used.",
     "buttonLabel": "Email the course team"
+  },
+  "whereItGoes": {
+    "title": "Where support goes",
+    "intro": "A small, non-credit course still needs real hardware. Here is what contributions are used for.",
+    "items": [
+      "Actuator kits for every student: the Week 1 build, kept afterwards as reusable teaching modules.",
+      "Limb and lower-body assemblies for the team builds, plus one or two complete course robots and spares.",
+      "Compute for simulation and on-robot control, batteries, motor controllers, and sensors.",
+      "Kit preparation: printing, fasteners, bearings, cabling, test fixtures, and shipping between build sites.",
+      "Documentation and open release of the adapted design and the course materials."
+    ]
   }
 }

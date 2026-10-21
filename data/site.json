@@ -1,5 +1,5 @@
 {
-  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' is the single place to change who receives course and sponsorship email (name, email, title shown next to the address).",
+  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' is the single place to change who receives course and sponsorship email (name, email, title shown next to the address). 'draft.enabled' adds a visible notice, a noindex/nofollow meta tag, and a robots.txt that disallows crawling; set it to false when the content is final.",
   "name": "Metal2Humanoid",
   "tagline": "Building a Humanoid Robot from the Ground Up",
   "description": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course: a four-week, hands-on introduction to humanoid robotics, from motors and actuators to coordinated motion and learned behavior, built on an open-source humanoid.",
@@ -69,8 +69,8 @@
     "logo": "assets/img/hbrn-logo.png",
     "logoWebp": "assets/img/hbrn-logo.webp",
     "relationship": "Metal2Humanoid is organized by its instructors together with members of the Homebrew Robotics Network (HBRN), the builder community behind the initiative.",
-    "blurb": "The Homebrew Robotics Network is a community of builders working toward open, accessible, reproducible robotics: hardware that can be built from widely available parts, documented well enough for others to repeat, and shared under open licenses. Its members contribute builds, documentation, testing, and teaching.",
-    "next": "Beyond the IAP course, HBRN is exploring two companion efforts that may extend the course materials: OSH Atlas, an atlas of open humanoid projects and resources, and UMOJA, a framework for assessing and comparing open humanoid designs. Both are possible future extensions for documentation, resource sharing, and benchmarking. Neither is a deliverable of the course."
+    "blurb": "The Homebrew Robotics Network is a community of builders working toward open, accessible, reproducible robotics: hardware that can be built from widely available parts, documented well enough for others to repeat, and shared under open licenses. For Metal2Humanoid, HBRN hardware contributors lead the robot design and the Week 1 actuator materials, and the instructors lead the simulation, locomotion, and task weeks.",
+    "next": "The immediate next step is a larger open humanoid built around commercial actuators, now in design by HBRN contributors as the platform that follows the course build. It is not a course deliverable. Further out, HBRN is exploring two companion efforts that may extend the course materials: OSH Atlas, an atlas of open humanoid projects and resources, and UMOJA, a framework for assessing and comparing open humanoid designs, both possible future extensions for documentation, resource sharing, and benchmarking."
   },
   "social": {
     "image": "assets/img/og-image.png",
@@ -79,5 +79,9 @@
   "footer": {
     "disclaimer": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 activity organized by its instructors and the Homebrew Robotics Network. This site is maintained by the course organizers and is not an official MIT publication.",
     "copyright": "© 2026 Metal2Humanoid organizers."
+  },
+  "draft": {
+    "enabled": true,
+    "notice": "Draft: this site is being revised with the course team and details may change. Please do not cite or archive it yet."
   }
 }

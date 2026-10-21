@@ -13,7 +13,7 @@
     "January 4–29, 2027"
   ],
   "intro": "A hands-on introduction to humanoid robotics—from motors and actuators to coordinated motion and learned behavior. Over four weeks, students work in teams to assemble, program, and test components of an open-source humanoid.",
-  "introSecondary": "The hardware platform is based on Berkeley Humanoid Lite. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.",
+  "introSecondary": "The course platform is derived from Berkeley Humanoid Lite and assembled from actuators that students build in Week 1. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.",
   "stages": [
     "Motor",
     "Actuator",
@@ -133,6 +133,7 @@
   "format": {
     "title": "How the course works",
     "paragraphs": [
+      "Four weeks is enough because the course is a guided tour of the whole stack, not a deep dive into any one field. Each week's lectures cover only the concepts needed for that week's lab, hardware arrives as prepared kits, and software comes as fill-in-the-blank scaffolds. Students leave with a working understanding of how a humanoid comes together and one subsystem they built and tested themselves.",
       "Hardware components and software scaffolds are prepared in advance. Students work in teams on shared builds using prepared hardware kits, guided labs, and scaffolded Python exercises. Labs focus on assembly, wiring, testing, and integration rather than fabrication, which is what makes a 90-minute weekly lab feasible.",
       "Activities include four weekly assignments, laboratory participation, and a final team demonstration and report. Instructors give feedback on understanding, testing, and documentation. No academic credit or formal grade is awarded."
     ]
@@ -151,7 +152,7 @@
       "alt": "Render of the Berkeley Humanoid Lite robot standing, seen from the front left: a light-gray 3D-printed humanoid with visible actuator housings at every joint.",
       "width": 800,
       "height": 1000,
-      "caption": "Berkeley Humanoid Lite, the open-source humanoid the course builds on. Rendered by the course team from the published robot model (CC BY-SA 4.0)."
+      "caption": "Berkeley Humanoid Lite, the open-source design the course platform is derived from. Rendered by the course team from the published robot model (CC BY-SA 4.0)."
     }
   }
 }

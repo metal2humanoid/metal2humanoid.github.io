@@ -21,7 +21,7 @@ src/            Templates (JavaScript functions that return HTML) and the SVG di
 assets/         css/, img/, video/, docs/ (syllabus PDF)
 build.js        node build.js  → writes index.html, sponsor.html, 404.html
 tools/          make-og.js (social-sharing image), see below
-index.html, sponsor.html, 404.html   Generated. Do not edit by hand.
+index.html, sponsor.html, 404.html, robots.txt, sitemap.txt   Generated. Do not edit by hand.
 ```
 
 ## Local development
@@ -45,6 +45,7 @@ Conventions used throughout the data files:
 - **Unreleased material** is a `null` link (schedule) or `"status": "coming"` (materials). It renders as plain "Coming soon" text, never as a dead link. Replace with a real URL when the item is published.
 - **Status values.** Materials: `available`, `coming`, `in-progress`, `external`. Progress: `demonstrated`, `in-progress`, `goal`. The build rejects anything else.
 - **Provisional facts.** Course facts can carry a `note` (for example `"Provisional"`) that renders as a small label.
+- **Draft mode.** `site.json → draft.enabled` (currently `true`) shows a notice under the header, adds `<meta name="robots" content="noindex, nofollow">`, and writes a `robots.txt` that disallows crawling, so search engines and most archivers skip the site while it is being revised. Set it to `false` and rebuild when the content is final; the build then writes a permissive `robots.txt` and a `sitemap.txt`.
 - **Registration.** `site.json → status.registration`: set `open` to `true` and provide a `url` only when a real registration destination exists; until then the status note is shown with the contact email.
 - **Contact addresses** live only in `site.json → contact` (`course` and `sponsor`, each with `name`, `email`, `title`). Every mailto link on the site is derived from them.
 - **People.** `photo` is a path under `assets/img/people/` or `null` (initials are shown). `links` should be verified public pages. `showEmail` hides an address without deleting it. Community contributors are listed by public handle; do not add names, titles, or roles the person has not confirmed.

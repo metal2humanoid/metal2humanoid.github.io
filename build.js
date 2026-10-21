@@ -111,6 +111,13 @@ const pages = {
   })
 };
 
+// robots.txt follows the draft flag: disallow crawling while the site is marked as a draft.
+const robotsTxt = site.draft && site.draft.enabled
+  ? 'User-agent: *\nDisallow: /\n'
+  : `User-agent: *\nAllow: /\nSitemap: ${site.siteUrl.replace(/\/$/, '')}${base}/sitemap.txt\n`;
+pages['robots.txt'] = robotsTxt;
+pages['sitemap.txt'] = ['index.html', 'sponsor.html'].map((f) => `${site.siteUrl.replace(/\/$/, '')}${base}/${f === 'index.html' ? '' : f}`).join('\n') + '\n';
+
 // ---- check that every internal link and asset exists -------------------------------------
 const linkProblems = [];
 const generated = new Set(Object.keys(pages));

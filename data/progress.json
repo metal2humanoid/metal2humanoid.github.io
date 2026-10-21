@@ -67,6 +67,16 @@
       }
     },
     {
+      "id": "next-platform",
+      "published": true,
+      "status": "in-progress",
+      "title": "Next platform: a larger open humanoid around commercial actuators",
+      "dateDisplay": "In design, October 2026",
+      "text": "HBRN hardware contributors are designing a larger open humanoid built around commercial actuators as the platform that follows the course build. The work is at the simulation and design stage; nothing has been built yet, and it is not a course deliverable.",
+      "attribution": "Homebrew Robotics Network hardware contributors.",
+      "media": null
+    },
+    {
       "id": "kit-prep",
       "published": true,
       "status": "goal",

@@ -112,7 +112,7 @@
   ],
   "platform": {
     "title": "Hardware platform",
-    "text": "The course builds on Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley, with modular 3D-printed gearboxes and widely available components. Its software is released under the MIT License and its hardware files under CC BY-SA 4.0.",
+    "text": "The course platform is derived from Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley with modular 3D-printed gearboxes and widely available components. The course build keeps its structure while HBRN contributors adapt the actuator design and selected components; final choices depend on the hardware partners confirmed before January. Berkeley Humanoid Lite's software is released under the MIT License and its hardware files under CC BY-SA 4.0.",
     "links": [
       {
         "label": "Project website",
@@ -138,7 +138,7 @@
       "alt": "Turntable render of the Berkeley Humanoid Lite robot model rotating through a full turn.",
       "width": 960,
       "height": 720,
-      "caption": "Turntable of the Berkeley Humanoid Lite model, rendered from the published robot description (CC BY-SA 4.0)."
+      "caption": "Turntable of the Berkeley Humanoid Lite model the course platform is derived from, rendered from the published robot description (CC BY-SA 4.0)."
     }
   }
 }

@@ -17,6 +17,7 @@
 <meta name="twitter:title" content="Metal2Humanoid: Building a Humanoid Robot from the Ground Up">
 <meta name="twitter:description" content="Metal2Humanoid is a proposed non-credit MIT IAP 2027 course: a four-week, hands-on introduction to humanoid robotics, from motors and actuators to coordinated motion and learned behavior, built on an open-source humanoid.">
 <meta name="twitter:image" content="https://metal2humanoid.github.io/assets/img/og-image.png">
+<meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#FBFAF7">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
@@ -34,6 +35,7 @@
     </nav>
   </div>
 </header>
+<div class="draft-banner" role="note"><div class="wrap">Draft: this site is being revised with the course team and details may change. Please do not cite or archive it yet.</div></div>
 <main id="main" tabindex="-1">
 <section class="hero has-image" id="overview" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
@@ -42,7 +44,7 @@
     <h1 id="hero-title" class="hero-title">Metal2Humanoid</h1>
     <p class="hero-subtitle">Building a Humanoid Robot from the Ground Up</p>
     <p class="hero-lede">A hands-on introduction to humanoid robotics—from motors and actuators to coordinated motion and learned behavior. Over four weeks, students work in teams to assemble, program, and test components of an open-source humanoid.</p>
-    <p class="hero-secondary">The hardware platform is based on Berkeley Humanoid Lite. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.</p>
+    <p class="hero-secondary">The course platform is derived from Berkeley Humanoid Lite and assembled from actuators that students build in Week 1. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.</p>
     <p class="actions">
       <a class="button button-primary" href="assets/docs/Metal2Humanoid_IAP_2027_Syllabus.pdf"><svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="14" height="14"><path d="M8 2v8m0 0 3-3M8 10 5 7M3 13h10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> View the syllabus <span class="muted-inline">(PDF)</span></a>
       <a class="button" href="#schedule">Explore the schedule</a>
@@ -53,7 +55,7 @@
   </div>
   <figure class="hero-figure">
     <img src="assets/img/renders/bhl-humanoid.jpg" alt="Render of the Berkeley Humanoid Lite robot standing, seen from the front left: a light-gray 3D-printed humanoid with visible actuator housings at every joint." width="800" height="1000" decoding="async" fetchpriority="high">
-    <figcaption>Berkeley Humanoid Lite, the open-source humanoid the course builds on. Rendered by the course team from the published robot model (CC BY-SA 4.0).</figcaption>
+    <figcaption>Berkeley Humanoid Lite, the open-source design the course platform is derived from. Rendered by the course team from the published robot model (CC BY-SA 4.0).</figcaption>
   </figure>
   </div>
   <div class="wrap wrap-wide">
@@ -109,7 +111,8 @@
     <div class="columns">
       <div>
         <h3>How the course works</h3>
-        <p>Hardware components and software scaffolds are prepared in advance. Students work in teams on shared builds using prepared hardware kits, guided labs, and scaffolded Python exercises. Labs focus on assembly, wiring, testing, and integration rather than fabrication, which is what makes a 90-minute weekly lab feasible.</p>
+        <p>Four weeks is enough because the course is a guided tour of the whole stack, not a deep dive into any one field. Each week&#39;s lectures cover only the concepts needed for that week&#39;s lab, hardware arrives as prepared kits, and software comes as fill-in-the-blank scaffolds. Students leave with a working understanding of how a humanoid comes together and one subsystem they built and tested themselves.</p>
+<p>Hardware components and software scaffolds are prepared in advance. Students work in teams on shared builds using prepared hardware kits, guided labs, and scaffolded Python exercises. Labs focus on assembly, wiring, testing, and integration rather than fabrication, which is what makes a 90-minute weekly lab feasible.</p>
 <p>Activities include four weekly assignments, laboratory participation, and a final team demonstration and report. Instructors give feedback on understanding, testing, and documentation. No academic credit or formal grade is awarded.</p>
       </div>
       <div>
@@ -358,10 +361,10 @@
       <figure class="platform-figure"><video class="platform-media" controls muted loop playsinline preload="none" poster="assets/img/bhl-turntable-poster.jpg" width="960" height="720" aria-label="Turntable render of the Berkeley Humanoid Lite robot model rotating through a full turn.">
         <source src="assets/video/bhl-turntable.mp4" type="video/mp4">
         <a href="assets/video/bhl-turntable.mp4">Download the video</a>
-      </video><figcaption>Turntable of the Berkeley Humanoid Lite model, rendered from the published robot description (CC BY-SA 4.0).</figcaption></figure>
+      </video><figcaption>Turntable of the Berkeley Humanoid Lite model the course platform is derived from, rendered from the published robot description (CC BY-SA 4.0).</figcaption></figure>
       <div class="platform-body">
       <h3 id="platform-title">Hardware platform</h3>
-      <p>The course builds on Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley, with modular 3D-printed gearboxes and widely available components. Its software is released under the MIT License and its hardware files under CC BY-SA 4.0.</p>
+      <p>The course platform is derived from Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley with modular 3D-printed gearboxes and widely available components. The course build keeps its structure while HBRN contributors adapt the actuator design and selected components; final choices depend on the hardware partners confirmed before January. Berkeley Humanoid Lite&#39;s software is released under the MIT License and its hardware files under CC BY-SA 4.0.</p>
       <p class="inline-links"><a href="https://lite.berkeley-humanoid.org/" rel="noopener">Project website <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a> <a href="https://berkeley-humanoid-lite.gitbook.io/docs" rel="noopener">Documentation <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a> <a href="https://github.com/HybridRobotics/Berkeley-Humanoid-Lite" rel="noopener">Code on GitHub <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a> <a href="https://arxiv.org/abs/2504.17249" rel="noopener">Paper (arXiv:2504.17249) <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
       </div>
     </aside>
@@ -425,7 +428,7 @@
   <div class="person-body">
     <h4 class="person-name">@clauses</h4>
     
-    <p class="person-role">Homebrew Robotics Network team</p>
+    <p class="person-role">Hardware design; Week 1 actuator assignment and hands-on lab materials</p>
     <p class="person-links"><a href="https://discord.gg/jGWZzaQwqt" rel="noopener">Discord</a></p>
   </div>
 </li>
@@ -485,6 +488,16 @@
           <p>A PPO standing policy trained in MuJoCo on the Berkeley Humanoid Lite model, using only observations a real robot can measure: IMU angular velocity, gravity direction, joint positions and velocities, and the previous action. This is the scaffolded setup the Week 3 assignment builds on. Simulation only.</p>
           
           <p class="attribution">Simulation and video by Willie McClinton. Robot model: Berkeley Humanoid Lite (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.</p>
+        </div>
+      </li>
+<li class="progress-entry" id="next-platform">
+        
+        <div class="progress-body">
+          <p class="progress-meta"><span class="status status-in-progress">In progress</span> <span class="muted">In design, October 2026</span></p>
+          <h3 class="progress-title">Next platform: a larger open humanoid around commercial actuators</h3>
+          <p>HBRN hardware contributors are designing a larger open humanoid built around commercial actuators as the platform that follows the course build. The work is at the simulation and design stage; nothing has been built yet, and it is not a course deliverable.</p>
+          
+          <p class="attribution">Homebrew Robotics Network hardware contributors.</p>
         </div>
       </li>
 <li class="progress-entry" id="kit-prep">
@@ -621,9 +634,9 @@
       </picture>
       <div>
         <p>Metal2Humanoid is organized by its instructors together with members of the Homebrew Robotics Network (HBRN), the builder community behind the initiative.</p>
-        <p>The Homebrew Robotics Network is a community of builders working toward open, accessible, reproducible robotics: hardware that can be built from widely available parts, documented well enough for others to repeat, and shared under open licenses. Its members contribute builds, documentation, testing, and teaching.</p>
+        <p>The Homebrew Robotics Network is a community of builders working toward open, accessible, reproducible robotics: hardware that can be built from widely available parts, documented well enough for others to repeat, and shared under open licenses. For Metal2Humanoid, HBRN hardware contributors lead the robot design and the Week 1 actuator materials, and the instructors lead the simulation, locomotion, and task weeks.</p>
         <h3>What comes next</h3>
-        <p>Beyond the IAP course, HBRN is exploring two companion efforts that may extend the course materials: OSH Atlas, an atlas of open humanoid projects and resources, and UMOJA, a framework for assessing and comparing open humanoid designs. Both are possible future extensions for documentation, resource sharing, and benchmarking. Neither is a deliverable of the course.</p>
+        <p>The immediate next step is a larger open humanoid built around commercial actuators, now in design by HBRN contributors as the platform that follows the course build. It is not a course deliverable. Further out, HBRN is exploring two companion efforts that may extend the course materials: OSH Atlas, an atlas of open humanoid projects and resources, and UMOJA, a framework for assessing and comparing open humanoid designs, both possible future extensions for documentation, resource sharing, and benchmarking.</p>
         <p class="inline-links"><a href="https://hbrnetwork.github.io/" rel="noopener">HBRN website <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a> <a href="https://discord.gg/jGWZzaQwqt" rel="noopener">Discord <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a> <a href="https://github.com/hbrnetwork" rel="noopener">GitHub <svg class="icon" aria-hidden="true" viewBox="0 0 16 16" width="12" height="12"><path d="M6.5 3H3.5A1.5 1.5 0 0 0 2 4.5v8A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-3M9.5 2H14v4.5M14 2 7.5 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
       </div>
     </div>

@@ -1,0 +1,79 @@
+{
+  "_doc": "People entries. 'photo' is a path under assets/img/people/ or null (renders initials). 'links' are verified public pages only. 'showEmail' controls whether the email is rendered; the email itself can stay on record. Community entries use public handles; do not add real names or roles that have not been confirmed by the person.",
+  "teaching": {
+    "title": "Teaching team",
+    "people": [
+      {
+        "name": "Ben Zandonati",
+        "affiliation": "MIT EECS",
+        "role": "Course proposer and lead instructor",
+        "email": "bzando@mit.edu",
+        "showEmail": true,
+        "photo": null,
+        "links": []
+      },
+      {
+        "name": "Willie McClinton",
+        "affiliation": "Adjunct (Visiting) Faculty, Department of Electrical and Computer Engineering, University of Miami; MIT alumnus (2026)",
+        "role": "Co-instructor; curriculum development and robotics instruction",
+        "email": "wbm3@mit.edu",
+        "showEmail": true,
+        "photo": null,
+        "links": [
+          { "label": "Website", "url": "https://wmcclinton.github.io/" },
+          { "label": "GitHub", "url": "https://github.com/wmcclinton" },
+          { "label": "LinkedIn", "url": "https://www.linkedin.com/in/wbm3/" }
+        ]
+      },
+      {
+        "name": "Seth Robles",
+        "affiliation": "MIT",
+        "role": "Co-instructor; undergraduate laboratory teaching assistant",
+        "email": "sirobles@mit.edu",
+        "showEmail": true,
+        "photo": null,
+        "links": []
+      },
+      {
+        "name": "James Kim",
+        "affiliation": "Independent robotics consultant; Berkeley alumnus",
+        "role": "Co-instructor; hardware laboratory instructor",
+        "email": "heb3515@gmail.com",
+        "showEmail": false,
+        "photo": null,
+        "links": []
+      }
+    ]
+  },
+  "facultySponsor": {
+    "title": "Faculty sponsor",
+    "note": "Faculty sponsorship of the IAP proposal is an academic role, separate from the financial and in-kind support described on the sponsor page.",
+    "people": [
+      {
+        "name": "Tomás Lozano-Pérez",
+        "affiliation": "MIT EECS",
+        "role": "Faculty sponsor",
+        "photo": null,
+        "links": [
+          { "label": "Website", "url": "https://people.csail.mit.edu/tlp/" }
+        ]
+      }
+    ]
+  },
+  "community": {
+    "title": "Community contributors",
+    "intro": "Metal2Humanoid grows out of the Homebrew Robotics Network, whose members contribute hardware builds, documentation, testing, and teaching. Contributors are listed here with their public handles as their roles are confirmed.",
+    "people": [
+      {
+        "name": "@clauses",
+        "affiliation": null,
+        "role": "Homebrew Robotics Network team",
+        "photo": null,
+        "links": [
+          { "label": "Discord", "url": "https://discord.gg/jGWZzaQwqt" }
+        ]
+      }
+    ],
+    "join": "Want to contribute? Join the HBRN Discord and introduce yourself."
+  }
+}

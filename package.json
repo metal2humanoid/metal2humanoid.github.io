@@ -1,0 +1,12 @@
+{
+  "name": "metal2humanoid-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site for Metal2Humanoid (proposed MIT IAP 2027). Built with a dependency-free Node script.",
+  "scripts": {
+    "build": "node build.js",
+    "check": "node build.js --check",
+    "serve": "python3 -m http.server 8000"
+  },
+  "engines": { "node": ">=18" }
+}

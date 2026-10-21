@@ -1,0 +1,68 @@
+{
+  "_doc": "Course facts and descriptive copy for the Overview section. Keep claims consistent with the syllabus PDF in assets/docs.",
+  "term": "MIT IAP 2027",
+  "dates": { "start": "2027-01-04", "end": "2027-01-29", "display": "January 4–29, 2027" },
+  "eyebrow": ["Proposed", "MIT IAP 2027", "Non-credit", "January 4–29, 2027"],
+  "intro": "A hands-on introduction to humanoid robotics—from motors and actuators to coordinated motion and learned behavior. Over four weeks, students work in teams to assemble, program, and test components of an open-source humanoid.",
+  "introSecondary": "The hardware platform is based on Berkeley Humanoid Lite. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.",
+  "stages": ["Motor", "Actuator", "Motion", "Learning", "Humanoid"],
+  "facts": [
+    { "label": "When", "value": "January 4–29, 2027 (four weeks)" },
+    { "label": "Offering", "value": "Proposed MIT IAP 2027 activity", "note": "Approval pending" },
+    { "label": "Credit", "value": "Non-credit; no formal grade" },
+    { "label": "Audience", "value": "Undergraduates; graduate students welcome" },
+    { "label": "Enrollment", "value": "About 20 students (estimated)" },
+    { "label": "Prerequisites", "value": "Basic programming, such as an introductory computer science or robotics course or equivalent experience. Assignments use Python. No prior hardware assembly, control theory, or machine learning experience is required." },
+    { "label": "Meeting times", "value": "Lectures Tuesdays and Thursdays, 1:00–2:30 p.m.; hardware labs Fridays, 1:00–2:30 p.m.", "note": "Provisional" },
+    { "label": "Location", "value": "To be determined; separate lecture and lab spaces are planned", "note": "Provisional" },
+    { "label": "Instructional hours", "value": "18 scheduled hours, plus one optional office hour each week" },
+    { "label": "Faculty sponsor", "value": "Tomás Lozano-Pérez, MIT EECS" }
+  ],
+  "learn": [
+    {
+      "week": 1,
+      "from": "Motor",
+      "to": "Actuator",
+      "text": "How motors, transmissions, encoders, and feedback control combine to produce controlled joint motion. Students assemble and test an actuator module from prepared components and implement motor position control."
+    },
+    {
+      "week": 2,
+      "from": "Actuator",
+      "to": "Motion",
+      "text": "Robot modeling, forward and inverse kinematics, and trajectory generation. Teams assemble actuators into a limb, validate joint motion, and implement end-effector motion control in simulation."
+    },
+    {
+      "week": 3,
+      "from": "Motion",
+      "to": "Learning",
+      "text": "Reinforcement learning for locomotion and the challenges of transferring policies from simulation to hardware. Teams integrate limbs into a lower-body assembly for supported tests and train a locomotion policy in a scaffolded simulation environment."
+    },
+    {
+      "week": 4,
+      "from": "Learning",
+      "to": "Humanoid",
+      "text": "Skill representations, sequencing, and integrated behavior. Teams complete system integration, implement a simple skill-sequencing task in simulation, and present a demonstration with a brief technical report."
+    }
+  ],
+  "objectives": [
+    "Explain how motors, transmissions, encoders, and feedback control produce controlled joint motion.",
+    "Model robot limbs and implement basic end-effector motion in simulation.",
+    "Train and evaluate a scaffolded locomotion policy and identify simulation-to-reality challenges.",
+    "Integrate and test robot subsystems, document results, and demonstrate coordinated behavior."
+  ],
+  "format": {
+    "title": "How the course works",
+    "paragraphs": [
+      "Hardware components and software scaffolds are prepared in advance. Students work in teams on shared builds using prepared hardware kits, guided labs, and scaffolded Python exercises. Labs focus on assembly, wiring, testing, and integration rather than fabrication, which is what makes a 90-minute weekly lab feasible.",
+      "Activities include four weekly assignments, laboratory participation, and a final team demonstration and report. Instructors give feedback on understanding, testing, and documentation. No academic credit or formal grade is awarded."
+    ]
+  },
+  "outcomes": {
+    "title": "Outcomes and expectations",
+    "paragraphs": [
+      "The course ends with a team demonstration and a brief technical report documenting hardware and software results.",
+      "Successful untethered walking and manipulation are stretch goals, not promised outcomes. Final demonstrations will reflect validated hardware capabilities. Simulation-based activities provide a parallel route for learning and evaluation whenever hardware needs troubleshooting.",
+      "Builds are shared team builds. Students do not each build, or take home, a complete robot."
+    ]
+  }
+}

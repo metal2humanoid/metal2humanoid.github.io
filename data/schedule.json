@@ -1,0 +1,146 @@
+{
+  "_doc": "Schedule data. Dates are ISO (YYYY-MM-DD) in America/New_York. Session 'materials' values are URLs or null; null renders as 'Coming soon'. Allowed material keys: slides, notes, recording, instructions, code, notebook. Session 'type' is 'lecture' or 'lab'. Lectures and labs are numbered automatically in order.",
+  "timezone": "America/New_York",
+  "meetings": [
+    { "kind": "Lectures", "when": "Tuesdays and Thursdays, 1:00–2:30 p.m.", "range": "January 5–28 (8 sessions)" },
+    { "kind": "Hardware labs", "when": "Fridays, 1:00–2:30 p.m.", "range": "January 8–29 (4 sessions)" },
+    { "kind": "Office hours", "when": "One optional hour each week", "range": "Time to be arranged" }
+  ],
+  "location": "To be determined. Separate lecture and laboratory spaces are planned.",
+  "hoursNote": "18 scheduled instructional hours, excluding office hours and independent assignments.",
+  "provisionalNote": "All times are provisional and subject to room and instructor availability. The exact split of topics between each week's two lectures is also provisional.",
+  "weeks": [
+    {
+      "number": 1,
+      "title": "Motor to Actuator",
+      "dates": "January 4–8",
+      "shortDates": "Jan 4–8",
+      "sessions": [
+        {
+          "date": "2027-01-05",
+          "type": "lecture",
+          "title": "Motor fundamentals",
+          "topics": ["What a motor is: torque, speed, and power", "Motors used in humanoid joints"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-07",
+          "type": "lecture",
+          "title": "Transmissions, encoders, and feedback control",
+          "topics": ["Gear reductions and transmissions", "Encoders and joint sensing", "Feedback control of joint position"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-08",
+          "type": "lab",
+          "title": "Assemble and test an actuator module",
+          "topics": ["Assembly from prepared components", "Bench test under position control"],
+          "materials": { "instructions": null, "code": null }
+        }
+      ],
+      "assignment": {
+        "title": "Implement and evaluate motor position control",
+        "materials": { "notebook": null }
+      }
+    },
+    {
+      "number": 2,
+      "title": "Actuator to Motion",
+      "dates": "January 11–15",
+      "shortDates": "Jan 11–15",
+      "sessions": [
+        {
+          "date": "2027-01-12",
+          "type": "lecture",
+          "title": "Robot modeling and forward kinematics",
+          "topics": ["Links, joints, and kinematic chains", "Robot description files", "Forward kinematics"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-14",
+          "type": "lecture",
+          "title": "Inverse kinematics and trajectory generation",
+          "topics": ["Inverse kinematics", "Generating joint and end-effector trajectories"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-15",
+          "type": "lab",
+          "title": "Assemble a limb and validate joint motion",
+          "topics": ["Chain actuators into a limb", "Validate joint motion and tracking"],
+          "materials": { "instructions": null, "code": null }
+        }
+      ],
+      "assignment": {
+        "title": "Implement end-effector motion control in simulation",
+        "materials": { "notebook": null }
+      }
+    },
+    {
+      "number": 3,
+      "title": "Motion to Learning",
+      "dates": "January 18–22",
+      "shortDates": "Jan 18–22",
+      "sessions": [
+        {
+          "date": "2027-01-19",
+          "type": "lecture",
+          "title": "Reinforcement learning for locomotion",
+          "topics": ["Reinforcement learning basics for control", "Locomotion policies, observations, and rewards"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-21",
+          "type": "lecture",
+          "title": "Simulation-to-reality transfer",
+          "topics": ["Sources of the sim-to-real gap", "Approaches to transferring policies to hardware"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-22",
+          "type": "lab",
+          "title": "Integrate the lower body and perform supported tests",
+          "topics": ["Integrate limbs into the lower-body assembly", "Supported tests on a fixture"],
+          "materials": { "instructions": null, "code": null }
+        }
+      ],
+      "assignment": {
+        "title": "Train and evaluate a locomotion policy using a scaffolded simulation environment",
+        "materials": { "notebook": null }
+      }
+    },
+    {
+      "number": 4,
+      "title": "Learning to Humanoid",
+      "dates": "January 25–29",
+      "shortDates": "Jan 25–29",
+      "sessions": [
+        {
+          "date": "2027-01-26",
+          "type": "lecture",
+          "title": "Skill representations",
+          "topics": ["Representing skills and behaviors", "From policies to reusable skills"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-28",
+          "type": "lecture",
+          "title": "Skill sequencing and integrated behavior",
+          "topics": ["Sequencing skills into tasks", "Integration, testing, and documentation"],
+          "materials": { "slides": null, "notes": null, "recording": null }
+        },
+        {
+          "date": "2027-01-29",
+          "type": "lab",
+          "title": "System integration and team demonstrations",
+          "topics": ["Complete system integration", "Team demonstrations"],
+          "materials": { "instructions": null, "code": null }
+        }
+      ],
+      "assignment": {
+        "title": "Implement a simple skill-sequencing task in simulation and submit a brief technical report",
+        "materials": { "notebook": null }
+      }
+    }
+  ]
+}

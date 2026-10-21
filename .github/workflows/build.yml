@@ -1,0 +1,34 @@
+name: Rebuild generated pages
+
+# Regenerates index.html, sponsor.html and 404.html whenever the content data or templates change,
+# so maintainers can edit data/*.json in the GitHub web editor without running Node locally.
+on:
+  push:
+    branches: [main]
+    paths: ['data/**', 'src/**', 'build.js']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Build pages from data
+        run: node build.js
+      - name: Commit regenerated pages
+        run: |
+          if git diff --quiet -- index.html sponsor.html 404.html; then
+            echo "Generated pages already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html sponsor.html 404.html
+          git commit -m "Rebuild generated pages from data [skip ci]"
+          git push

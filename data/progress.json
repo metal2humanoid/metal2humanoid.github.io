@@ -1,0 +1,108 @@
+{
+  "_doc": "Progress entries, newest first. 'status' is one of: demonstrated, in-progress, goal. Set 'published' to false to keep a slot in the file without rendering it. 'media' is null or {type: 'video'|'image', src, poster (video), alt, width, height}. Every entry needs a caption-quality 'text' and an 'attribution'.",
+  "intro": "What has been built so far, with honest status labels. Entries are added as results are documented; every photo or video carries a caption and attribution. Simulation results are labeled as simulation.",
+  "legend": [
+    { "status": "demonstrated", "label": "Demonstrated", "text": "Shown working, with evidence linked here." },
+    { "status": "in-progress", "label": "In progress", "text": "Underway; results reported by the team but not yet documented here." },
+    { "status": "goal", "label": "Goal", "text": "Planned or aspirational; not yet started or not guaranteed." }
+  ],
+  "entries": [
+    {
+      "id": "um-pilot-legs",
+      "published": true,
+      "status": "in-progress",
+      "title": "Pilot build: Berkeley Humanoid Lite legs, standing",
+      "dateDisplay": "Reported October 2026",
+      "text": "At the University of Miami, undergraduate students Ahmed and Zara assembled Berkeley Humanoid Lite legs under Willie McClinton’s supervision. The prototype is standing; walking remains under development.",
+      "framing": "Reported pilot status from the course organizers. Photographs and test video will be added once documented.",
+      "attribution": "University of Miami pilot, supervised by Willie McClinton.",
+      "media": null
+    },
+    {
+      "id": "sim-bhl-walk",
+      "published": true,
+      "status": "demonstrated",
+      "tag": "Simulation",
+      "title": "Simulation: walking policy on the Berkeley Humanoid Lite model",
+      "dateDisplay": "October 2026",
+      "text": "A reinforcement-learning walking policy (PPO) trained in MuJoCo on the Berkeley Humanoid Lite model, following a forward velocity command. The policy outputs joint-position targets at 50 Hz to a PD controller, the same interface a real motor driver exposes. Simulation only; no hardware result is implied.",
+      "attribution": "Simulation and video by Willie McClinton. Robot model: Berkeley Humanoid Lite (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
+      "media": {
+        "type": "video",
+        "src": "assets/video/bhl-walk.mp4",
+        "poster": "assets/img/bhl-walk-poster.jpg",
+        "alt": "Simulated Berkeley Humanoid Lite walking forward on a checkered floor in MuJoCo.",
+        "width": 640,
+        "height": 438
+      }
+    },
+    {
+      "id": "sim-bhl-stand",
+      "published": true,
+      "status": "demonstrated",
+      "tag": "Simulation",
+      "title": "Simulation: standing policy on the Berkeley Humanoid Lite model",
+      "dateDisplay": "October 2026",
+      "text": "A PPO standing policy trained in MuJoCo on the Berkeley Humanoid Lite model, using only observations a real robot can measure: IMU angular velocity, gravity direction, joint positions and velocities, and the previous action. This is the scaffolded setup the Week 3 assignment builds on. Simulation only.",
+      "attribution": "Simulation and video by Willie McClinton. Robot model: Berkeley Humanoid Lite (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
+      "media": {
+        "type": "video",
+        "src": "assets/video/bhl-stand.mp4",
+        "poster": "assets/img/bhl-stand-poster.jpg",
+        "alt": "Simulated Berkeley Humanoid Lite standing upright on a checkered floor in MuJoCo.",
+        "width": 640,
+        "height": 438
+      }
+    },
+    {
+      "id": "kit-prep",
+      "published": true,
+      "status": "goal",
+      "title": "Before January: validated lab sequence and prepared kits",
+      "dateDisplay": "Planned, late 2026",
+      "text": "Before the course begins, the instructional team plans to validate the laboratory sequence, prepare components and spare parts, and test the software exercises. Actuator and limb builds, bench tests, and simulation checks will be documented here as they happen.",
+      "attribution": "Metal2Humanoid teaching team.",
+      "media": null
+    },
+    {
+      "id": "stretch-goals",
+      "published": true,
+      "status": "goal",
+      "title": "Stretch goals: untethered walking and manipulation",
+      "dateDisplay": "IAP 2027",
+      "text": "Successful untethered walking and manipulation are stretch goals for the final demonstrations, not promised outcomes. Final demonstrations will reflect validated hardware capabilities.",
+      "attribution": "Metal2Humanoid syllabus.",
+      "media": null
+    },
+    {
+      "id": "community-videos-clauses",
+      "published": false,
+      "status": "demonstrated",
+      "title": "Community build videos (@clauses)",
+      "dateDisplay": "",
+      "text": "Placeholder slot: add verified public project videos with dates, captions, and attribution before publishing.",
+      "attribution": "@clauses",
+      "media": null
+    },
+    {
+      "id": "lab-robot-photos-willie",
+      "published": false,
+      "status": "in-progress",
+      "title": "Lab robot photographs and demonstrations (University of Miami)",
+      "dateDisplay": "",
+      "text": "Placeholder slot: add photographs or video of the pilot legs with dates and attribution before publishing.",
+      "attribution": "Willie McClinton",
+      "media": null
+    },
+    {
+      "id": "arm-build-bot",
+      "published": false,
+      "status": "in-progress",
+      "title": "Arm-building work (community contributor)",
+      "dateDisplay": "",
+      "text": "Placeholder slot: add documentation of the arm build with the contributor's public handle, dates, and attribution before publishing.",
+      "attribution": "",
+      "media": null
+    }
+  ]
+}

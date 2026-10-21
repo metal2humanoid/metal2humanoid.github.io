@@ -1,0 +1,57 @@
+{
+  "_doc": "Content for sponsor.html. 'confirmed' lists only confirmed sponsors: {name, kind ('financial' | 'in-kind' | 'mentorship'), url (may include the sponsor's own tracking parameters), logo (path under assets/img/sponsors/ or null), note}. Prospects, outreach status, and budget targets never belong in this file.",
+  "headline": "Help students build humanoid robots from the ground up.",
+  "lede": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course in which about twenty students work in teams to assemble, program, and test components of an open-source humanoid based on Berkeley Humanoid Lite. The course requests no departmental funding: the organizing team is arranging hardware and materials through sponsors and parts donors.",
+  "whatSupportProvides": {
+    "title": "What support makes possible",
+    "items": [
+      { "title": "Reusable hardware", "text": "Actuator modules, limbs, and shared humanoid builds that are used across the four labs and kept for future offerings and community builds." },
+      { "title": "Prepared lab kits", "text": "Pre-fabricated and pre-sourced components, spares, and tools, so that 90-minute labs can focus on assembly, wiring, and testing rather than fabrication." },
+      { "title": "Documented learning resources", "text": "Lab guides, notebooks, and build notes published openly so that other groups can repeat the course." }
+    ]
+  },
+  "needs": {
+    "title": "What we need",
+    "intro": "Support can be in-kind or financial. Hardware and tools are the most immediate needs.",
+    "items": [
+      { "title": "Actuators, motors, encoders, and sensors", "text": "Joint actuators or motor-plus-gearbox modules, magnetic encoders, IMUs, and load sensing for the lab builds and spares." },
+      { "title": "Batteries, electronics, compute, and motor controllers", "text": "Battery packs and management, power distribution, motor controller boards, CAN interfaces, and on-board or bench compute." },
+      { "title": "Fabrication, machining, printing, and materials", "text": "3D printing capacity and filament, laser-cut or machined interface parts, fasteners, bearings, and structural stock for kit preparation." },
+      { "title": "Tools, test equipment, spare parts, and consumables", "text": "Bench power supplies, multimeters, soldering stations, hand tools, robot support fixtures, cabling, and connectors." },
+      { "title": "Financial support", "text": "Funds for components, kit preparation, and replacement parts, used where in-kind contributions do not cover a need." },
+      { "title": "Technical mentorship and engineering support", "text": "Review of designs and lab procedures, help with motor control and firmware, and occasional guest participation in labs." }
+    ]
+  },
+  "benefits": {
+    "title": "What sponsors receive",
+    "intro": "We keep recognition straightforward and tied to real use of what you provide.",
+    "items": [
+      "Recognition on this website and in relevant project materials.",
+      "Credited hardware demonstrations and build updates that show your components in use.",
+      "Opportunities to engage with student and independent robotics builders.",
+      "Practical feedback from hands-on use of your products in a teaching setting.",
+      "Participation in a growing open robotics education community."
+    ]
+  },
+  "bigCompanies": {
+    "title": "How Big Companies Fit In",
+    "intro": "Open robotics education and the companies that make robotics hardware need each other. The relationship works best when each side contributes what it is good at.",
+    "companies": {
+      "title": "Companies contribute",
+      "items": ["Components and development kits", "Manufacturing and design-for-manufacturing expertise", "Tools, test equipment, and compute", "Engineering time and resources"]
+    },
+    "community": {
+      "title": "The community contributes",
+      "items": ["Experimentation with those technologies in real builds", "Open documentation that others can follow", "Honest, practical feedback from hands-on use", "People who learn to build with those technologies"]
+    }
+  },
+  "confirmed": [],
+  "confirmedTitle": "Current sponsors",
+  "noSponsorsNote": "No sponsors are listed yet. Confirmed supporters will be recognized here with their permission.",
+  "facultyNote": "Faculty sponsorship of the IAP proposal (Tomás Lozano-Pérez, MIT EECS) is an academic role and is separate from the financial and in-kind support described on this page.",
+  "contact": {
+    "title": "Get in touch",
+    "text": "Tell us what you can offer and any requirements your organization has for recognition, reporting, or shipping. We will reply with specifics about where it would be used.",
+    "buttonLabel": "Email the course team"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' addresses are the single place to change who receives course and sponsorship email.",
+  "name": "Metal2Humanoid",
+  "tagline": "Building a Humanoid Robot from the Ground Up",
+  "description": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course: a four-week, hands-on introduction to humanoid robotics, from motors and actuators to coordinated motion and learned behavior, built on an open-source humanoid.",
+  "siteUrl": "https://metal2humanoid.github.io",
+  "basePath": "",
+  "nav": [
+    { "label": "Overview", "href": "index.html#overview" },
+    { "label": "Schedule", "href": "index.html#schedule" },
+    { "label": "Materials", "href": "index.html#materials" },
+    { "label": "Team", "href": "index.html#team" },
+    { "label": "Progress", "href": "index.html#progress" },
+    { "label": "Sponsor", "href": "sponsor.html" }
+  ],
+  "contact": {
+    "course": { "name": "Ben Zandonati", "email": "bzando@mit.edu", "subject": "Metal2Humanoid (IAP 2027) question" },
+    "sponsor": { "name": "Ben Zandonati", "email": "bzando@mit.edu", "subject": "Metal2Humanoid sponsorship" }
+  },
+  "links": {
+    "syllabusPdf": "assets/docs/Metal2Humanoid_IAP_2027_Syllabus.pdf",
+    "courseRepo": "https://github.com/hbrnetwork/metal2humanoid",
+    "siteSource": "https://github.com/metal2humanoid/metal2humanoid.github.io",
+    "discord": "https://discord.gg/jGWZzaQwqt",
+    "hbrnSite": "https://hbrnetwork.github.io/",
+    "hbrnGithub": "https://github.com/hbrnetwork"
+  },
+  "status": {
+    "approvalLabel": "Proposed",
+    "approvalNote": "Proposed as a non-credit MIT IAP 2027 activity; approval, meeting times, and rooms are provisional.",
+    "registration": {
+      "open": false,
+      "url": null,
+      "label": "Register",
+      "note": "Registration is not open yet. Details will be posted here once the offering is approved and scheduled."
+    }
+  },
+  "hbrn": {
+    "name": "Homebrew Robotics Network",
+    "short": "HBRN",
+    "logo": "assets/img/hbrn-logo.png",
+    "logoWebp": "assets/img/hbrn-logo.webp",
+    "relationship": "Metal2Humanoid is organized by its instructors together with members of the Homebrew Robotics Network (HBRN), the builder community behind the initiative.",
+    "blurb": "The Homebrew Robotics Network is a community of builders working toward open, accessible, reproducible robotics: hardware that can be built from widely available parts, documented well enough for others to repeat, and shared under open licenses. Its members contribute builds, documentation, testing, and teaching.",
+    "next": "Beyond the IAP course, HBRN is exploring two companion efforts that may extend the course materials: OSH Atlas, an atlas of open humanoid projects and resources, and UMOJA, a framework for assessing and comparing open humanoid designs. Both are possible future extensions for documentation, resource sharing, and benchmarking. Neither is a deliverable of the course."
+  },
+  "social": {
+    "image": "assets/img/og-image.png",
+    "imageAlt": "Metal2Humanoid: Building a Humanoid Robot from the Ground Up. Motor, Actuator, Motion, Learning, Humanoid."
+  },
+  "footer": {
+    "disclaimer": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 activity organized by its instructors and the Homebrew Robotics Network. This site is maintained by the course organizers and is not an official MIT publication.",
+    "copyright": "© 2026 Metal2Humanoid organizers."
+  }
+}

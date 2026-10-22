@@ -42,7 +42,7 @@ function personCard(p) {
   return `<li class="person">
   ${avatar}
   <div class="person-body">
-    <h4 class="person-name">${name}</h4>
+    <h4 class="person-name">${name}${p.handle ? ` <span class="person-handle">${esc(p.handle)}</span>` : ''}</h4>
     ${p.affiliation ? `<p class="person-affiliation">${esc(p.affiliation)}</p>` : ''}
     <p class="person-role">${esc(p.role)}</p>
     ${links.length ? `<p class="person-links">${links.join(' <span aria-hidden="true">·</span> ')}</p>` : ''}

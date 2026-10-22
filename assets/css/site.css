@@ -269,6 +269,7 @@ tr.assignment td { background: var(--bg-alt); }
 }
 .person-name { margin: 0.2rem 0 0.15rem; font-size: 1.1rem; }
 .person-name a { color: inherit; }
+.person-handle { font-family: var(--mono); font-size: 0.8rem; font-weight: 500; color: var(--muted); margin-left: 0.3rem; }
 .person-affiliation { margin: 0 0 0.1rem; color: var(--muted); font-size: 0.95rem; }
 .person-role { margin: 0 0 0.3rem; font-size: 0.98rem; }
 .person-links { margin: 0; font-size: 0.92rem; }

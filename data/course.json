@@ -1,5 +1,5 @@
 {
-  "_doc": "Course facts and descriptive copy for the Overview section. Keep claims consistent with the syllabus PDF in assets/docs. 'hero.image' and each 'learn[].media' are optional {type, src, poster, alt, width, height, caption} objects.",
+  "_doc": "Course facts and descriptive copy for the Overview section, following the November 2026 course plan (assets/docs/Metal2Humanoid_IAP_2027_Course_Plan.pdf). 'hero.image' and each 'learn[].media' are optional {type, src, poster, alt, width, height, caption} objects; 'planPdf' is the primary document link.",
   "term": "MIT IAP 2027",
   "dates": {
     "start": "2027-01-04",
@@ -10,10 +10,11 @@
     "Proposed",
     "MIT IAP 2027",
     "Non-credit",
-    "January 4–29, 2027"
+    "January 4–29, 2027",
+    "Public showcase January 29"
   ],
   "intro": "A hands-on introduction to humanoid robotics—from motors and actuators to coordinated motion and learned behavior. Over four weeks, students work in teams to assemble, program, and test components of an open-source humanoid.",
-  "introSecondary": "The course platform is derived from Berkeley Humanoid Lite and assembled from actuators that students build in Week 1. Each week combines two lectures, a guided hardware lab, and a scaffolded Python assignment.",
+  "introSecondary": "Every student builds an actuator in Week 1 on the Berkeley Humanoid Lite platform. Teams then assemble, commission, and program the Metal2Humanoid, a larger custom humanoid, and the course ends with a public showcase of both robots on January 29.",
   "stages": [
     "Motor",
     "Actuator",
@@ -32,6 +33,11 @@
       "note": "Approval pending"
     },
     {
+      "label": "Format",
+      "value": "12 integrated lecture-lab sessions of about three hours, tentatively Tuesdays, Thursdays, and Fridays, plus supervised open lab time",
+      "note": "Provisional"
+    },
+    {
       "label": "Credit",
       "value": "Non-credit; no formal grade"
     },
@@ -41,25 +47,25 @@
     },
     {
       "label": "Enrollment",
-      "value": "About 20 students (estimated)"
+      "value": "20 students in six teams of two to four; every student builds an actuator"
     },
     {
       "label": "Prerequisites",
       "value": "Basic programming, such as an introductory computer science or robotics course or equivalent experience. Assignments use Python. No prior hardware assembly, control theory, or machine learning experience is required."
     },
     {
-      "label": "Meeting times",
-      "value": "Lectures Tuesdays and Thursdays, 1:00–2:30 p.m.; hardware labs Fridays, 1:00–2:30 p.m.",
-      "note": "Provisional"
-    },
-    {
       "label": "Location",
-      "value": "To be determined; separate lecture and lab spaces are planned",
+      "value": "One primary robotics lab for all sessions, plus a larger venue for the final showcase",
       "note": "Provisional"
     },
     {
-      "label": "Instructional hours",
-      "value": "18 scheduled hours, plus one optional office hour each week"
+      "label": "Scheduled hours",
+      "value": "About 36 hours over 12 sessions, plus open lab time"
+    },
+    {
+      "label": "Final showcase",
+      "value": "Friday, January 29, 2027: public demonstrations of both humanoids with an invited audience",
+      "note": "Venue to be confirmed"
     },
     {
       "label": "Faculty sponsor",
@@ -71,7 +77,7 @@
       "week": 1,
       "from": "Motor",
       "to": "Actuator",
-      "text": "How motors, transmissions, encoders, and feedback control combine to produce controlled joint motion. Students assemble and test an actuator module from prepared components and implement motor position control.",
+      "text": "BLDC motors, drivers, cycloidal gearboxes, encoders, and PID control. Every student assembles, calibrates, and tests their own actuator; by Friday, selected student-built actuators drive a prepared walking mechanism.",
       "media": {
         "type": "image",
         "src": "assets/img/renders/actuator-exploded.jpg",
@@ -79,71 +85,77 @@
         "width": 900,
         "height": 900,
         "caption": "Inside the actuator: an exploded render of the printed 6512 cycloidal module (BHL design, CC BY-SA 4.0)."
-      }
+      },
+      "element": "Earth"
     },
     {
       "week": 2,
       "from": "Actuator",
       "to": "Motion",
-      "text": "Robot modeling, forward and inverse kinematics, and trajectory generation. Teams assemble actuators into a limb, validate joint motion, and implement end-effector motion control in simulation.",
+      "text": "Kinematics, dynamics, balance, and humanoid architecture. Six teams assemble the Metal2Humanoid (legs, arms, torso, and integration), commission it, and run supported standing and walking tests, targeting walking by Friday.",
       "media": {
         "type": "image",
         "src": "assets/img/renders/bhl-leg.jpg",
         "alt": "Render of a single Berkeley Humanoid Lite leg from hip actuators to flat foot.",
         "width": 900,
         "height": 900,
-        "caption": "One leg of the Berkeley Humanoid Lite: five actuators from hip to ankle (render, CC BY-SA 4.0)."
-      }
+        "caption": "Teams assemble legs, arms, and torso in Week 2. A Berkeley Humanoid Lite leg is shown; the Metal2Humanoid design is being finalized (render, CC BY-SA 4.0)."
+      },
+      "element": "Water"
     },
     {
       "week": 3,
       "from": "Motion",
       "to": "Learning",
-      "text": "Reinforcement learning for locomotion and the challenges of transferring policies from simulation to hardware. Teams integrate limbs into a lower-body assembly for supported tests and train a locomotion policy in a scaffolded simulation environment.",
+      "text": "Reinforcement learning, imitation learning, and sim-to-real transfer. Teams train or fine-tune policies, develop one robot skill each, deploy feasible skills to hardware, and build a shared skill library.",
       "media": {
         "type": "image",
         "src": "assets/img/renders/montage-4-square.jpg",
         "alt": "Four simulated humanoid robots walking on a checkered floor in a two-by-two grid.",
         "width": 900,
         "height": 900,
-        "caption": "The Week 3 scaffold: the same training pipeline walking four open robots in MuJoCo (simulation)."
-      }
+        "caption": "The Week 3 scaffold: the same training pipeline walking four open robots in MuJoCo, the starting point for team skills (simulation)."
+      },
+      "element": "Fire"
     },
     {
       "week": 4,
       "from": "Learning",
       "to": "Humanoid",
-      "text": "Skill representations, sequencing, and integrated behavior. Teams complete system integration, implement a simple skill-sequencing task in simulation, and present a demonstration with a brief technical report.",
+      "text": "Task planning and skill sequencing. Teams integrate skills into coordinated behaviors, rehearse, and present both humanoids at the public showcase on January 29.",
       "media": {
         "type": "image",
         "src": "assets/img/renders/bhl-humanoid-front.jpg",
         "alt": "Front render of the complete Berkeley Humanoid Lite robot with legs, torso, and arms.",
         "width": 900,
         "height": 900,
-        "caption": "The integrated humanoid: lower body, torso, and arms (render, CC BY-SA 4.0)."
-      }
+        "caption": "Integration and showcase: both humanoids demonstrate skills and planning on January 29 (Berkeley Humanoid Lite render, CC BY-SA 4.0)."
+      },
+      "element": "Air"
     }
   ],
   "objectives": [
-    "Explain how motors, transmissions, encoders, and feedback control produce controlled joint motion.",
-    "Model robot limbs and implement basic end-effector motion in simulation.",
-    "Train and evaluate a scaffolded locomotion policy and identify simulation-to-reality challenges.",
-    "Integrate and test robot subsystems, document results, and demonstrate coordinated behavior."
+    "Individually assemble, calibrate, and test a functional actuator.",
+    "Demonstrate coordinated actuator control through a prepared Berkeley Humanoid Lite by the end of Week 1.",
+    "Assemble and commission the full Metal2Humanoid, targeting walking by the end of Week 2.",
+    "Develop and evaluate locomotion, manipulation, and other robot skills.",
+    "Integrate learned and programmed skills into coordinated robot behaviors.",
+    "Present the work at a public final showcase featuring both humanoid platforms."
   ],
   "format": {
     "title": "How the course works",
     "paragraphs": [
-      "Four weeks is enough because the course is a guided tour of the whole stack, not a deep dive into any one field. Each week's lectures cover only the concepts needed for that week's lab, hardware arrives as prepared kits, and software comes as fill-in-the-blank scaffolds. Students leave with a working understanding of how a humanoid comes together and one subsystem they built and tested themselves.",
-      "Hardware components and software scaffolds are prepared in advance. Students work in teams on shared builds using prepared hardware kits, guided labs, and scaffolded Python exercises. Labs focus on assembly, wiring, testing, and integration rather than fabrication, which is what makes a 90-minute weekly lab feasible.",
-      "Activities include four weekly assignments, laboratory participation, and a final team demonstration and report. Instructors give feedback on understanding, testing, and documentation. No academic credit or formal grade is awarded."
+      "Four weeks is enough because the course is a guided tour of the whole stack, not a deep dive into any one field. Each session's lecture covers only the concepts needed for that session's hands-on work, hardware arrives as prepared kits with prefabricated parts and preflashed electronics, and software comes as fill-in-the-blank scaffolds with pretrained policies.",
+      "Each roughly three-hour session combines 20–40 minutes of lecture and demonstration, 90–120 minutes of guided hands-on work, and the remaining time for testing, debugging, and discussion. All sessions take place in the same lab, with additional open lab time for assembly, testing, and integration.",
+      "Students work in six teams of two to four. Every student completes an individual actuator; teams share responsibility for humanoid assembly, software development, and testing, and responsibilities may shift as the course progresses. Activities include four weekly assignments, lab participation, and the final showcase. No academic credit or formal grade is awarded."
     ]
   },
   "outcomes": {
     "title": "Outcomes and expectations",
     "paragraphs": [
-      "The course ends with a team demonstration and a brief technical report documenting hardware and software results.",
-      "Successful untethered walking and manipulation are stretch goals, not promised outcomes. Final demonstrations will reflect validated hardware capabilities. Simulation-based activities provide a parallel route for learning and evaluation whenever hardware needs troubleshooting.",
-      "Builds are shared team builds. Students do not each build, or take home, a complete robot."
+      "The course ends with a public showcase on January 29 featuring both humanoid platforms: student-built actuators, Berkeley Humanoid Lite walking and skills, the Metal2Humanoid walking and skills, and six team presentations with live or recorded demonstrations and lessons learned.",
+      "Milestones are targets, not promises. Assembling the full Metal2Humanoid and getting it walking by the end of Week 2 is ambitious; walking validation may extend into Week 3, and live demonstrations at the showcase depend on robot readiness and safety approval. Simulation and pretrained policies keep the software curriculum moving regardless of hardware delays, and every team prepares a recorded or simulated backup.",
+      "Builds are shared team builds. Each student keeps the experience of building and testing an actuator; the robots and kits stay with the course for future offerings and community builds."
     ]
   },
   "hero": {
@@ -152,7 +164,29 @@
       "alt": "Render of the Berkeley Humanoid Lite robot standing, seen from the front left: a light-gray 3D-printed humanoid with visible actuator housings at every joint.",
       "width": 800,
       "height": 1000,
-      "caption": "Berkeley Humanoid Lite, the open-source design the course platform is derived from. Rendered by the course team from the published robot model (CC BY-SA 4.0)."
+      "caption": "Berkeley Humanoid Lite, the Week 1 actuator and introductory platform. Rendered by the course team from the published robot model (CC BY-SA 4.0)."
     }
+  },
+  "planPdf": "assets/docs/Metal2Humanoid_IAP_2027_Course_Plan.pdf",
+  "milestones": {
+    "title": "Milestones by week",
+    "items": [
+      {
+        "week": "Week 1 · Earth",
+        "text": "20 student-built actuators; a walking demonstration using student-built hardware."
+      },
+      {
+        "week": "Week 2 · Water",
+        "text": "One assembled Metal2Humanoid; commissioning and initial walking tests (validation may continue into Week 3)."
+      },
+      {
+        "week": "Week 3 · Fire",
+        "text": "Six team-developed robot skills; locomotion and imitation-learning experiments; initial hardware deployment."
+      },
+      {
+        "week": "Week 4 · Air",
+        "text": "Integrated skills and planning; demonstrations of both humanoids; six team presentations; the public showcase on January 29."
+      }
+    ]
   }
 }

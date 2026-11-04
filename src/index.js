@@ -66,7 +66,7 @@ function renderHero(data) {
     <p class="hero-lede">${esc(course.intro)}</p>
     <p class="hero-secondary">${esc(course.introSecondary)}</p>
     <p class="actions">
-      <a class="button button-primary" ${linkAttrs(site.links.syllabusPdf)}>${icons.download} View the syllabus <span class="muted-inline">(PDF)</span></a>
+      <a class="button button-primary" ${linkAttrs(course.planPdf || site.links.syllabusPdf)}>${icons.download} View the course plan <span class="muted-inline">(PDF)</span></a>
       <a class="button" href="#schedule">Explore the schedule</a>
       <a class="button" href="sponsor.html">Support the course</a>
       ${regAction}
@@ -102,7 +102,7 @@ function renderLearn(course) {
     <ol class="stages">
       ${join(course.learn, (s) => `<li class="stage">
         ${s.media ? `<figure class="stage-figure">${mediaTag(s.media, 'stage-media')}<figcaption>${esc(s.media.caption || '')}</figcaption></figure>` : ''}
-        <p class="stage-week">Week ${s.week}</p>
+        <p class="stage-week">Week ${s.week}${s.element ? ` · ${esc(s.element)}` : ''}</p>
         <h3 class="stage-title">${esc(s.from)} <span class="arrow" aria-hidden="true">→</span><span class="visually-hidden"> to </span>${esc(s.to)}</h3>
         <p>${esc(s.text)}</p>
       </li>`)}
@@ -117,26 +117,35 @@ function renderLearn(course) {
         ${join(course.outcomes.paragraphs, (p) => `<p>${esc(p)}</p>`)}
       </div>
     </div>
-    <h3>Learning objectives</h3>
-    <ul class="objectives">
+    <h3>Course goals</h3>
+    <ol class="objectives">
       ${join(course.objectives, (o) => `<li>${esc(o)}</li>`)}
-    </ul>
+    </ol>
+    ${course.milestones ? `<h3>${esc(course.milestones.title)}</h3>
+    <dl class="milestones">
+      ${join(course.milestones.items, (mi) => `<div><dt>${esc(mi.week)}</dt><dd>${esc(mi.text)}</dd></div>`)}
+    </dl>` : ''}
   </div>
 </section>`;
 }
 
 function renderSchedule(data) {
   const { schedule } = data;
-  let lectureN = 0, labN = 0;
+  let sessionN = 0;
+  const list = (items, label) => items && items.length
+    ? `<p class="cell-label">${esc(label)}</p><ul class="topics">${items.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : '';
   const weeks = schedule.weeks.map((w) => {
-    const rows = w.sessions.map((s) => {
-      const isLab = s.type === 'lab';
-      const label = isLab ? `Lab ${++labN}` : `Lecture ${++lectureN}`;
-      return `<tr class="session session-${esc(s.type)}">
-        <td data-label="Date"><time datetime="${esc(s.date)}">${esc(fmtDate(s.date))}</time></td>
-        <td data-label="Session"><span class="pill pill-${esc(s.type)}">${esc(label)}</span><span class="session-title">${esc(s.title)}</span></td>
-        <td data-label="Topics">${s.topics && s.topics.length ? `<ul class="topics">${s.topics.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>` : ''}</td>
-        <td data-label="Materials">${materialLinks(s.materials)}</td>
+    const rows = w.sessions.map((sess) => {
+      const isShowcase = sess.type === 'showcase';
+      const label = isShowcase ? 'Showcase' : `Session ${++sessionN}`;
+      const body = isShowcase
+        ? list(sess.program, 'Program') + (sess.note ? `<p class="cell-note">${esc(sess.note)}</p>` : '')
+        : list(sess.topics, 'Lecture') + list(sess.lab, 'Lab');
+      return `<tr class="session session-${esc(sess.type)}">
+        <td data-label="Date"><time datetime="${esc(sess.date)}">${esc(fmtDate(sess.date))}</time></td>
+        <td data-label="Session"><span class="pill pill-${esc(sess.type)}">${esc(label)}</span><span class="session-title">${esc(sess.title)}</span></td>
+        <td data-label="Lecture and lab">${body}</td>
+        <td data-label="Materials">${materialLinks(sess.materials)}</td>
       </tr>`;
     }).join('\n');
     const a = w.assignment;
@@ -144,13 +153,19 @@ function renderSchedule(data) {
         <th scope="row">Assignment</th>
         <td colspan="3" data-label="Assignment"><span class="session-title">${esc(a.title)}</span> ${materialLinks(a.materials)}</td>
       </tr>` : '';
+    const milestoneRow = w.milestones && w.milestones.length ? `<tr class="assignment milestone">
+        <th scope="row">Milestone</th>
+        <td colspan="3" data-label="Milestone"><ul class="topics">${w.milestones.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></td>
+      </tr>` : '';
     return `<article class="week" id="week-${w.number}" aria-labelledby="week-${w.number}-title">
-  <h3 id="week-${w.number}-title"><span class="week-num">Week ${w.number}</span> ${esc(w.title)} <span class="week-dates">${esc(w.dates)}</span></h3>
+  <h3 id="week-${w.number}-title"><span class="week-num">Week ${w.number}${w.element ? ` · ${esc(w.element)}` : ''}</span> ${esc(w.title)} <span class="week-dates">${esc(w.dates)}</span></h3>
+  ${w.goal ? `<p class="week-goal"><strong>Goal:</strong> ${esc(w.goal)}</p>` : ''}
   <table class="schedule">
-    <thead><tr><th scope="col">Date</th><th scope="col">Session</th><th scope="col">Topics</th><th scope="col">Materials</th></tr></thead>
+    <thead><tr><th scope="col">Date</th><th scope="col">Session</th><th scope="col">Lecture and lab</th><th scope="col">Materials</th></tr></thead>
     <tbody>
 ${rows}
 ${assignmentRow}
+${milestoneRow}
     </tbody>
   </table>
 </article>`;

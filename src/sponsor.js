@@ -24,7 +24,7 @@ function renderSponsor(data) {
     <p class="actions">
       <a class="button button-primary" href="${esc(href)}">${icons.mail} ${esc(sponsors.contact.buttonLabel)}</a>
       <a class="button" href="index.html#progress">See progress so far</a>
-      <a class="button" href="${esc(site.links.syllabusPdf)}">${icons.download} Syllabus <span class="muted-inline">(PDF)</span></a>
+      <a class="button" href="${esc(data.course.planPdf || site.links.syllabusPdf)}">${icons.download} Course plan <span class="muted-inline">(PDF)</span></a>
     </p>
   </div>
 </section>

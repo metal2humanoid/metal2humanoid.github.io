@@ -1,146 +1,360 @@
 {
-  "_doc": "Schedule data. Dates are ISO (YYYY-MM-DD) in America/New_York. Session 'materials' values are URLs or null; null renders as 'Coming soon'. Allowed material keys: slides, notes, recording, instructions, code, notebook. Session 'type' is 'lecture' or 'lab'. Lectures and labs are numbered automatically in order.",
+  "_doc": "Schedule data. Dates are ISO (YYYY-MM-DD) in America/New_York. Each week has an 'element' label, a 'goal', sessions, an 'assignment', and 'milestones'. Session 'type' is 'session' (integrated lecture-lab) or 'showcase'; 'topics' are lecture topics, 'lab' the hands-on activities, 'program' the showcase program. Material values are URLs or null (null renders as 'Coming soon'). Allowed material keys: slides, notes, recording, instructions, code, notebook.",
   "timezone": "America/New_York",
   "meetings": [
-    { "kind": "Lectures", "when": "Tuesdays and Thursdays, 1:00–2:30 p.m.", "range": "January 5–28 (8 sessions)" },
-    { "kind": "Hardware labs", "when": "Fridays, 1:00–2:30 p.m.", "range": "January 8–29 (4 sessions)" },
-    { "kind": "Office hours", "when": "One optional hour each week", "range": "Time to be arranged" }
+    {
+      "kind": "Sessions",
+      "when": "Tuesdays, Thursdays, and Fridays, about 3 hours each",
+      "range": "12 sessions, January 5–29 (days tentative; times to be set)"
+    },
+    {
+      "kind": "Open lab",
+      "when": "Additional supervised lab time as needed",
+      "range": "For assembly, testing, and integration"
+    },
+    {
+      "kind": "Showcase",
+      "when": "Friday, January 29, 2027",
+      "range": "Public, invited audience; larger venue to be confirmed"
+    }
   ],
-  "location": "To be determined. Separate lecture and laboratory spaces are planned.",
-  "hoursNote": "18 scheduled instructional hours, excluding office hours and independent assignments.",
-  "provisionalNote": "All times are provisional and subject to room and instructor availability. The exact split of topics between each week's two lectures is also provisional.",
+  "location": "One primary robotics lab for all sessions, to be confirmed.",
+  "hoursNote": "About 36 scheduled hours across 12 sessions, plus open lab time and four weekly assignments.",
+  "provisionalNote": "Days are tentative and clock times are not yet set; the split of topics between sessions is provisional. Each session combines 20–40 minutes of lecture and demonstration, 90–120 minutes of guided hands-on work, and time for testing, debugging, and discussion.",
   "weeks": [
     {
       "number": 1,
-      "title": "Motor to Actuator",
+      "element": "Earth",
+      "title": "Motors, gearboxes, and actuators",
       "dates": "January 4–8",
       "shortDates": "Jan 4–8",
+      "goal": "Every student builds an actuator, and the class demonstrates coordinated walking motion using student-built actuators.",
       "sessions": [
         {
           "date": "2027-01-05",
-          "type": "lecture",
-          "title": "Motor fundamentals",
-          "topics": ["What a motor is: torque, speed, and power", "Motors used in humanoid joints"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Motor fundamentals and actuator architecture",
+          "topics": [
+            "BLDC motors: torque, speed, current, and power",
+            "Motor drivers and electrical safety",
+            "Actuator design and mechanical interfaces",
+            "Introduction to the Berkeley Humanoid Lite actuators"
+          ],
+          "lab": [
+            "Inspect actuator components and explore motor characteristics",
+            "Run a Python motor-modeling notebook",
+            "Begin individual actuator assembly"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-07",
-          "type": "lecture",
-          "title": "Transmissions, encoders, and feedback control",
-          "topics": ["Gear reductions and transmissions", "Encoders and joint sensing", "Feedback control of joint position"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Gearboxes, encoders, and feedback control",
+          "topics": [
+            "Cycloidal gearboxes",
+            "Bearings, shafts, and mechanical tolerances",
+            "Encoders and position sensing",
+            "PID control and calibration"
+          ],
+          "lab": [
+            "Complete individual actuator assembly; install prepared electronics and wiring",
+            "Inspect mechanical alignment",
+            "Calibrate and test actuators; implement basic position control"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-08",
-          "type": "lab",
-          "title": "Assemble and test an actuator module",
-          "topics": ["Assembly from prepared components", "Bench test under position control"],
-          "materials": { "instructions": null, "code": null }
+          "type": "session",
+          "title": "Actuator control and walking demonstration",
+          "topics": [
+            "Coordinated joint motion and joint synchronization",
+            "Trajectory generation",
+            "Basic gait patterns"
+          ],
+          "lab": [
+            "Finish actuator testing and measure actuator performance",
+            "Integrate selected student-built actuators into a prepared BHL-like walking mechanism",
+            "Execute coordinated joint trajectories and demonstrate walking motion"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         }
       ],
       "assignment": {
-        "title": "Implement and evaluate motor position control",
-        "materials": { "notebook": null }
-      }
+        "title": "Model a motor and plot its torque–speed curve",
+        "materials": {
+          "notebook": null
+        }
+      },
+      "milestones": [
+        "20 student-built actuators",
+        "One walking demonstration using student-built actuators"
+      ]
     },
     {
       "number": 2,
-      "title": "Actuator to Motion",
+      "element": "Water",
+      "title": "Kinematics, dynamics, and humanoid assembly",
       "dates": "January 11–15",
       "shortDates": "Jan 11–15",
+      "goal": "Assemble and commission the full Metal2Humanoid, targeting walking by Friday. Remaining walking validation may extend into Week 3.",
       "sessions": [
         {
           "date": "2027-01-12",
-          "type": "lecture",
-          "title": "Robot modeling and forward kinematics",
-          "topics": ["Links, joints, and kinematic chains", "Robot description files", "Forward kinematics"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Robot modeling, kinematics, and assembly",
+          "topics": [
+            "Degrees of freedom and joint configurations",
+            "Forward and inverse kinematics; coordinate frames",
+            "URDF and robot modeling",
+            "Humanoid mechanical architecture"
+          ],
+          "lab": [
+            "Explore the robot simulation and URDF",
+            "Begin assembly of assigned subsystems: left leg, right leg, left arm, right arm, torso, and system integration",
+            "Install actuators, brackets, and links; inspect alignment and joint limits against the CAD"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-14",
-          "type": "lecture",
-          "title": "Inverse kinematics and trajectory generation",
-          "topics": ["Inverse kinematics", "Generating joint and end-effector trajectories"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Dynamics, balance, and robot commissioning",
+          "topics": [
+            "Robot dynamics; center of mass and stability",
+            "Joint-level feedback control and trajectory generation",
+            "Walking controllers",
+            "Power, communications, and safety"
+          ],
+          "lab": [
+            "Continue mechanical assembly; connect prepared wiring and communication interfaces",
+            "Verify joint IDs and configurations; test joints and limbs independently",
+            "Perform supported-motion tests and load pretrained controllers"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-15",
-          "type": "lab",
-          "title": "Assemble a limb and validate joint motion",
-          "topics": ["Chain actuators into a limb", "Validate joint motion and tracking"],
-          "materials": { "instructions": null, "code": null }
+          "type": "session",
+          "title": "Whole-body integration and walking",
+          "topics": [
+            "Whole-body coordination; balance and locomotion control",
+            "Sim-to-real differences",
+            "Debugging mechanical and control failures"
+          ],
+          "lab": [
+            "Complete humanoid integration; validate joint configurations and communication",
+            "Supported standing and walking tests; supervised walking attempts",
+            "Record and resolve integration issues"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         }
       ],
       "assignment": {
-        "title": "Implement end-effector motion control in simulation",
-        "materials": { "notebook": null }
-      }
+        "title": "Implement forward and inverse kinematics and basic end-effector motion",
+        "materials": {
+          "notebook": null
+        }
+      },
+      "milestones": [
+        "One assembled Metal2Humanoid with subsystem and safety checks complete",
+        "Supported standing and walking tests; walking demonstration targeted by the end of the week (validation may continue into Week 3)"
+      ]
     },
     {
       "number": 3,
-      "title": "Motion to Learning",
+      "element": "Fire",
+      "title": "Robot learning and skills",
       "dates": "January 18–22",
       "shortDates": "Jan 18–22",
+      "goal": "Develop robot skills in simulation and deploy them to the humanoids where feasible. Skills work starts on schedule even if hardware debugging continues.",
       "sessions": [
         {
           "date": "2027-01-19",
-          "type": "lecture",
-          "title": "Reinforcement learning for locomotion",
-          "topics": ["Reinforcement learning basics for control", "Locomotion policies, observations, and rewards"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Reinforcement learning and locomotion",
+          "topics": [
+            "Markov decision processes; reinforcement learning and PPO",
+            "Reward design and locomotion training",
+            "Policy evaluation"
+          ],
+          "lab": [
+            "Run humanoid locomotion simulations and evaluate pretrained walking policies",
+            "Modify rewards and controller parameters; train or fine-tune a policy",
+            "Compare simulated and physical performance; continue walking validation if needed"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-21",
-          "type": "lecture",
-          "title": "Simulation-to-reality transfer",
-          "topics": ["Sources of the sim-to-real gap", "Approaches to transferring policies to hardware"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Imitation learning and sim-to-real",
+          "topics": [
+            "Behavior cloning and demonstration datasets",
+            "Diffusion policies and vision-language-action models",
+            "Domain randomization and sim-to-real transfer"
+          ],
+          "lab": [
+            "Collect or inspect demonstration data; train or adapt a simple imitation-learning policy",
+            "Test skills in simulation; deploy selected behaviors to hardware where feasible",
+            "Compare learned and programmed behaviors"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-22",
-          "type": "lab",
-          "title": "Integrate the lower body and perform supported tests",
-          "topics": ["Integrate limbs into the lower-body assembly", "Supported tests on a fixture"],
-          "materials": { "instructions": null, "code": null }
+          "type": "session",
+          "title": "Robot skills development",
+          "topics": [
+            "Skill interfaces; preconditions and termination conditions",
+            "Success and failure detection; execution monitoring",
+            "Reusable robot behaviors"
+          ],
+          "lab": [
+            "Each team develops a skill, such as balancing, walking to a target, turning, reaching, gestures, simple manipulation, or recovery",
+            "Test in simulation and deploy feasible skills to hardware; evaluate reliability",
+            "Integrate skills into a shared library and select showcase demonstrations"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         }
       ],
       "assignment": {
-        "title": "Train and evaluate a locomotion policy using a scaffolded simulation environment",
-        "materials": { "notebook": null }
-      }
+        "title": "Train or fine-tune a locomotion policy and evaluate its performance",
+        "materials": {
+          "notebook": null
+        }
+      },
+      "milestones": [
+        "Walking validated or actively refined",
+        "Six team-developed skills, with initial deployment to hardware and a shared skill library"
+      ]
     },
     {
       "number": 4,
-      "title": "Learning to Humanoid",
+      "element": "Air",
+      "title": "Planning, integration, and showcase",
       "dates": "January 25–29",
       "shortDates": "Jan 25–29",
+      "goal": "Combine skills into coordinated behaviors and demonstrate the two humanoids at a public event.",
       "sessions": [
         {
           "date": "2027-01-26",
-          "type": "lecture",
-          "title": "Skill representations",
-          "topics": ["Representing skills and behaviors", "From policies to reusable skills"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Robot skills and task planning",
+          "topics": [
+            "Hierarchical robot control; predicates and abstract states",
+            "Preconditions, effects, and symbolic planning",
+            "Skill sequencing and task and motion planning"
+          ],
+          "lab": [
+            "Implement a basic task planner; define skill preconditions and effects",
+            "Sequence multiple skills; test execution and recovery",
+            "Connect planners to the shared skill library"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-28",
-          "type": "lecture",
-          "title": "Skill sequencing and integrated behavior",
-          "topics": ["Sequencing skills into tasks", "Integration, testing, and documentation"],
-          "materials": { "slides": null, "notes": null, "recording": null }
+          "type": "session",
+          "title": "Task and motion planning and final integration",
+          "topics": [
+            "Geometric constraints and motion planning",
+            "Bilevel planning and learned skill integration",
+            "Robust execution"
+          ],
+          "lab": [
+            "Integrate team-developed skills and test complete demonstrations",
+            "Validate hardware and software interfaces; complete safety checks",
+            "Rehearse presentations and prepare backup demonstrations"
+          ],
+          "materials": {
+            "slides": null,
+            "notes": null,
+            "instructions": null,
+            "code": null
+          }
         },
         {
           "date": "2027-01-29",
-          "type": "lab",
-          "title": "System integration and team demonstrations",
-          "topics": ["Complete system integration", "Team demonstrations"],
-          "materials": { "instructions": null, "code": null }
+          "type": "showcase",
+          "title": "Metal2Humanoid public showcase",
+          "topics": [],
+          "program": [
+            "Introduction to Metal2Humanoid and the student-built actuators",
+            "Berkeley Humanoid Lite walking and skills demonstration",
+            "Metal2Humanoid walking and skills demonstration",
+            "Six team presentations: contribution, hardware or software developed, live or recorded demonstration, results and lessons learned",
+            "Interactive demonstrations where safe; closing discussion and networking"
+          ],
+          "note": "Held in a larger venue with an invited audience. Live demonstrations depend on robot readiness and safety approval; recorded and simulation backups are prepared.",
+          "materials": {
+            "slides": null,
+            "recording": null
+          }
         }
       ],
       "assignment": {
-        "title": "Implement a simple skill-sequencing task in simulation and submit a brief technical report",
-        "materials": { "notebook": null }
-      }
+        "title": "Implement skill sequencing or a simple task-and-motion planner",
+        "materials": {
+          "notebook": null
+        }
+      },
+      "milestones": [
+        "Two humanoid platforms demonstrated",
+        "Integrated robot skills and planning; six team presentations",
+        "One public showcase on January 29"
+      ]
     }
   ]
 }

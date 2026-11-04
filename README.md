@@ -12,7 +12,7 @@ The site is static HTML generated from JSON data files by a dependency-free Node
 data/           Content, one JSON file per concern (edit these)
   site.json       name, description, navigation, contact emails, status flags, HBRN copy, footer
   course.json     facts, intro copy, what students learn, outcomes
-  schedule.json   meeting times and the four weekly tables (sessions, topics, material links)
+  schedule.json   meeting times and the four weekly tables (integrated sessions, lecture topics, lab activities, assignment, milestones)
   materials.json  resource groups for the Materials section
   people.json     teaching team, faculty sponsor, community contributors
   progress.json   progress entries with status labels and media
@@ -32,6 +32,7 @@ Requires Node 18 or newer. There are no packages to install.
 node build.js                 # regenerate the pages from data/ and src/
 python3 -m http.server 8000   # preview at http://localhost:8000
 node build.js --check         # exit 1 if the committed pages are stale
+node build.js --check-links   # also request every external URL and list failures (needs network)
 ```
 
 The build validates the data (status values, dates, required fields) and fails if any internal link or asset path points at a missing file, so a typo in a path cannot ship as a broken link.
@@ -42,7 +43,8 @@ Edit the relevant file in `data/`, run `node build.js`, and commit the data **an
 
 Conventions used throughout the data files:
 
-- **Unreleased material** is a `null` link (schedule) or `"status": "coming"` (materials). It renders as plain "Coming soon" text, never as a dead link. Replace with a real URL when the item is published.
+- **Schedule sessions** have `type` `session` (integrated lecture-lab: `topics` plus `lab`) or `showcase` (`program` plus `note`). Each week carries an `element`, a `goal`, an `assignment`, and `milestones`.
+- **Unreleased material** is a `null` link (schedule) or `"status": "coming"` (materials). It renders as plain "Coming soon" text, never as a dead link. Replace with a real URL when the item is published. A materials item may carry `pendingUrl` (a destination that is not public yet); when the page is live, rename it to `url`, set `status` to `available`, and run `node build.js --check-links` to confirm.
 - **Status values.** Materials: `available`, `coming`, `in-progress`, `external`. Progress: `demonstrated`, `in-progress`, `goal`. The build rejects anything else.
 - **Provisional facts.** Course facts can carry a `note` (for example `"Provisional"`) that renders as a small label.
 - **Draft mode.** `site.json → draft.enabled` (currently `true`) shows a notice under the header, adds `<meta name="robots" content="noindex, nofollow">`, and writes a `robots.txt` that disallows crawling, so search engines and most archivers skip the site while it is being revised. Set it to `false` and rebuild when the content is final; the build then writes a permissive `robots.txt` and a `sitemap.txt`.
@@ -70,6 +72,18 @@ Every asset needs a meaningful caption, a date if known, and attribution. Third-
 - `assets/img/renders/` are renders of the Berkeley Humanoid Lite design made with `tools/render-platform.py` (MuJoCo) from the project's published robot description and 6512 actuator part files (CC BY-SA 4.0). They are labeled as renders on the site and are not photographs of a course build.
 - `assets/video/` clips come from the course's MuJoCo training scaffold (PPO stand and walk policies). Models and licenses: Berkeley Humanoid Lite (CC BY-SA 4.0), Asimov v0 by Asimov Inc (CERN-OHL-S 2.0), Roboto Origin by RoboParty (GPL-3.0). Keep these attributions when reusing the clips.
 - `assets/img/people/` holds headshots; sources are listed in `HANDOFF.md`.
+
+### Course-plan PDF
+
+`assets/docs/Metal2Humanoid_IAP_2027_Course_Plan.pdf` is generated from `docs/course-plan.md` (the source of truth for the plan). After editing the markdown:
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install markdown
+.venv/bin/python tools/make-plan-pdf.py /tmp/plan.html
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --print-to-pdf=assets/docs/Metal2Humanoid_IAP_2027_Course_Plan.pdf file:///tmp/plan.html
+```
+
+Keep the site data (`data/*.json`) consistent with the plan when you change either.
 
 ### Social-sharing image
 

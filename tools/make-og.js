@@ -18,7 +18,7 @@ const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt
 const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><style>
 html,body{margin:0}
 body{width:1200px;height:630px;background:#FBFAF7;color:#1C1B19;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;display:flex;flex-direction:column;justify-content:space-between;padding:54px 64px 40px;box-sizing:border-box;overflow:hidden}
-.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:20px;letter-spacing:.05em;text-transform:uppercase;color:#5D5A54}
+.eyebrow{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#5D5A54;white-space:nowrap}
 h1{font-size:92px;margin:10px 0 0;letter-spacing:-.035em;line-height:1;font-weight:700}
 .sub{font-size:34px;color:#5D5A54;margin-top:12px;font-weight:500;letter-spacing:-.01em}
 .bar{height:6px;width:120px;background:#A64B1F;margin-top:26px}

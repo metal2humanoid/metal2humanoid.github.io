@@ -1,16 +1,23 @@
 {
-  "_doc": "Resource groups for the Materials section. Item 'status' is one of: available, coming, in-progress, external. Give 'url' only for real, public destinations; omit it (or set null) for unreleased items. Use 'attribution' for third-party resources.",
+  "_doc": "Resource groups for the Materials section. Item 'status' is one of: available, coming, in-progress, external. Give 'url' only for real, public destinations; omit it (or set null) for unreleased items. Use 'attribution' for third-party resources. 'pendingUrl' keeps a destination on file for an item whose public page is not live yet; move it to 'url' and set status 'available' once it resolves (node build.js --check-links verifies external links).",
   "intro": "Materials are posted here as they are released. Items marked “coming soon” are being prepared by the teaching team. Third-party resources are credited to their authors and are not Metal2Humanoid course materials.",
   "groups": [
     {
-      "title": "Syllabus",
+      "title": "Course plan and syllabus",
       "items": [
         {
-          "title": "Metal2Humanoid IAP 2027 syllabus (PDF)",
+          "title": "Metal2Humanoid IAP 2027 course plan (PDF)",
+          "url": "assets/docs/Metal2Humanoid_IAP_2027_Course_Plan.pdf",
+          "status": "available",
+          "download": true,
+          "note": "Sessions, milestones, kits, preparation, and contingencies. Updated November 2026; details marked provisional may change."
+        },
+        {
+          "title": "Original proposal syllabus, October 2026 (PDF)",
           "url": "assets/docs/Metal2Humanoid_IAP_2027_Syllabus.pdf",
           "status": "available",
           "download": true,
-          "note": "Proposed syllabus, two pages."
+          "note": "The two-page syllabus submitted with the IAP proposal. Where it differs from the course plan, the plan is current."
         }
       ]
     },
@@ -18,9 +25,21 @@
       "title": "Lecture notes and slides",
       "items": [
         {
-          "title": "Slides and notes for the eight lectures",
+          "title": "Slides and notes for the twelve sessions",
           "status": "coming",
           "note": "Posted in the schedule before each session."
+        },
+        {
+          "title": "Lecture briefs and reading list (eight lectures)",
+          "status": "coming",
+          "note": "Goals, content, what each assignment needs from the lecture, demos and reading. Link goes live when the course repository update is published.",
+          "pendingUrl": "https://github.com/hbrnetwork/metal2humanoid/blob/main/projects/iap/lectures/README.md"
+        },
+        {
+          "title": "Course wiki: lesson notes by topic",
+          "url": "https://github.com/hbrnetwork/metal2humanoid/tree/main/material/notes",
+          "status": "available",
+          "note": "Background reading (motors, actuators, kinematics, planning, reinforcement learning, systems)."
         }
       ]
     },
@@ -28,9 +47,9 @@
       "title": "Lab instructions",
       "items": [
         {
-          "title": "Guides for the four hardware labs",
+          "title": "Lab guides for the twelve sessions",
           "status": "coming",
-          "note": "Actuator module, limb, lower body, and system integration."
+          "note": "Actuator assembly and testing, humanoid subsystem assembly and commissioning, skills development, planning, and showcase preparation."
         }
       ]
     },
@@ -41,12 +60,19 @@
           "title": "Course repository on GitHub",
           "url": "https://github.com/hbrnetwork/metal2humanoid",
           "status": "in-progress",
-          "note": "Open curriculum repository with robot embodiment files and notes; assignment notebooks will be published here."
+          "note": "Open curriculum repository with robot embodiment files, the locomotion scaffold, notes and the IAP assignments."
         },
         {
           "title": "Assignment notebooks (four weekly assignments)",
           "status": "coming",
-          "note": "Scaffolded, fill-in-the-blank Python exercises."
+          "note": "Scaffolded, fill-in-the-blank Python notebooks; run locally or in Google Colab (links in the folder README). Link goes live when the course repository update is published.",
+          "pendingUrl": "https://github.com/hbrnetwork/metal2humanoid/tree/main/projects/iap/"
+        },
+        {
+          "title": "Technical report template",
+          "status": "coming",
+          "pendingUrl": "https://github.com/hbrnetwork/metal2humanoid/blob/main/projects/iap/report_template.mdx",
+          "note": "Link goes live when the course repository update is published."
         }
       ]
     },
@@ -99,7 +125,8 @@
         {
           "title": "Simulation environment setup guide",
           "status": "coming",
-          "note": "Python-based; instructions will be posted before Week 2."
+          "note": "Python with MuJoCo and PyTorch; the notebooks also run in Google Colab. Link goes live when the course repository update is published.",
+          "pendingUrl": "https://github.com/hbrnetwork/metal2humanoid/blob/main/projects/iap/README.md#setup-local"
         },
         {
           "title": "Berkeley Humanoid Lite: training environment",
@@ -111,8 +138,17 @@
     }
   ],
   "platform": {
-    "title": "Hardware platform",
-    "text": "The course platform is derived from Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley with modular 3D-printed gearboxes and widely available components. The course build keeps its structure while HBRN contributors adapt the actuator design and selected components; final choices depend on the hardware partners confirmed before January. A v1 humanoid beyond Berkeley Humanoid Lite is planned after the course; its design is not yet committed. Berkeley Humanoid Lite's software is released under the MIT License and its hardware files under CC BY-SA 4.0.",
+    "title": "Two platforms",
+    "text": "Week 1 uses Berkeley Humanoid Lite, an open-source humanoid from the Hybrid Robotics group at UC Berkeley with modular 3D-printed cycloidal actuators, as the actuator and introductory platform: every student builds a BHL-style actuator, and a prepared BHL-like mechanism walks on student-built actuators by Friday. From Week 2 the course moves to the Metal2Humanoid, a larger custom humanoid (provisionally 26 actuated joints) assembled and commissioned by the six teams. Its CAD and actuator selection are being finalized before January. Berkeley Humanoid Lite's software is MIT-licensed and its hardware files are CC BY-SA 4.0.",
+    "media": {
+      "type": "video",
+      "src": "assets/video/bhl-turntable.mp4",
+      "poster": "assets/img/bhl-turntable-poster.jpg",
+      "alt": "Turntable render of the Berkeley Humanoid Lite robot model rotating through a full turn.",
+      "width": 960,
+      "height": 720,
+      "caption": "Turntable of the Berkeley Humanoid Lite model the course platform is derived from, rendered from the published robot description (CC BY-SA 4.0)."
+    },
     "links": [
       {
         "label": "Project website",
@@ -130,15 +166,6 @@
         "label": "Paper (arXiv:2504.17249)",
         "url": "https://arxiv.org/abs/2504.17249"
       }
-    ],
-    "media": {
-      "type": "video",
-      "src": "assets/video/bhl-turntable.mp4",
-      "poster": "assets/img/bhl-turntable-poster.jpg",
-      "alt": "Turntable render of the Berkeley Humanoid Lite robot model rotating through a full turn.",
-      "width": 960,
-      "height": 720,
-      "caption": "Turntable of the Berkeley Humanoid Lite model the course platform is derived from, rendered from the published robot description (CC BY-SA 4.0)."
-    }
+    ]
   }
 }

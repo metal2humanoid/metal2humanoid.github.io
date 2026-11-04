@@ -67,17 +67,17 @@
       }
     },
     {
-      "id": "v1-humanoid",
+      "id": "metal2humanoid-robot",
       "published": true,
-      "status": "goal",
-      "title": "v1 humanoid: the design beyond Berkeley Humanoid Lite",
-      "dateDisplay": "Design not yet committed",
-      "text": "After the course build, the team aims at a v1 humanoid that goes beyond Berkeley Humanoid Lite, built around commercial actuators. The design is deliberately not fixed yet: we are waiting for sponsorship commitments before committing to one, so that partner hardware can shape it. Candidates are being explored in simulation. It is not a course deliverable.",
-      "attribution": "Homebrew Robotics Network hardware contributors.",
+      "status": "in-progress",
+      "title": "The Metal2Humanoid: the course's custom humanoid, design being finalized",
+      "dateDisplay": "Design in progress, November 2026",
+      "text": "A larger custom humanoid, provisionally 26 actuated joints (six hip, two waist, two neck, three per leg below the hip, and five per arm), assembled and commissioned by the six student teams in Week 2, with walking targeted by the end of that week. CAD and actuator selection are being finalized now, and a hardware partner can still shape the actuator choice. The silhouette stands in until the design is frozen.",
+      "attribution": "Homebrew Robotics Network hardware contributors and the course team.",
       "media": {
         "type": "image",
         "src": "assets/img/v1-silhouette.svg",
-        "alt": "Gray humanoid silhouette with a large question mark: the v1 design has not been chosen yet.",
+        "alt": "Gray humanoid silhouette with a large question mark: the Metal2Humanoid design is being finalized and has not been published yet.",
         "width": 480,
         "height": 320
       }
@@ -86,10 +86,10 @@
       "id": "kit-prep",
       "published": true,
       "status": "goal",
-      "title": "Before January: validated lab sequence and prepared kits",
-      "dateDisplay": "Planned, late 2026",
-      "text": "Before the course begins, the instructional team plans to validate the laboratory sequence, prepare components and spare parts, and test the software exercises. Actuator and limb builds, bench tests, and simulation checks will be documented here as they happen.",
-      "attribution": "Metal2Humanoid teaching team.",
+      "title": "Before January: the critical path",
+      "dateDisplay": "November–December 2026",
+      "text": "Freeze the actuator and humanoid designs and confirm the bill of materials; procure 20 individual actuator kits plus spares; fabricate mechanical parts and prepare electronics, wiring, and firmware; build and validate the Week 1 walking mechanism; prepare and test the humanoid subsystems, power, communications, and walking controllers; prepare notebooks, simulation environments, pretrained checkpoints, and the shared skill interfaces; reserve the lab and the showcase venue; and rehearse every major lab activity.",
+      "attribution": "Metal2Humanoid course team.",
       "media": null
     },
     {
@@ -210,7 +210,7 @@
       {
         "title": "Lower-body assembly",
         "tag": "Render",
-        "caption": "Legs and pelvis of the Berkeley Humanoid Lite design, the target of the Week 3 lab.",
+        "caption": "Legs and pelvis of the Berkeley Humanoid Lite design: the kind of subsystem assembly teams take on in Week 2.",
         "attribution": "Render by the course team from the published model. Berkeley Humanoid Lite design (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
         "media": {
           "type": "image",
@@ -236,7 +236,7 @@
       {
         "title": "The full humanoid",
         "tag": "Render",
-        "caption": "Front view of the complete Berkeley Humanoid Lite design: the Week 4 integration target.",
+        "caption": "Front view of the complete Berkeley Humanoid Lite design, the Week 1 actuator and introductory platform.",
         "attribution": "Render by the course team from the published model. Berkeley Humanoid Lite design (Hybrid Robotics, UC Berkeley), CC BY-SA 4.0.",
         "media": {
           "type": "image",

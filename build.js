@@ -4,6 +4,7 @@
  * Metal2Humanoid site builder (no dependencies).
  *   node build.js          write index.html, sponsor.html, 404.html from data/ and src/
  *   node build.js --check  verify the committed pages match the data (exit 1 if stale)
+ *   node build.js --check-links  also request every external URL and report failures (needs network)
  */
 const fs = require('fs');
 const path = require('path');
@@ -13,6 +14,7 @@ const { renderSponsor, renderNotFound } = require('./src/sponsor');
 
 const ROOT = __dirname;
 const CHECK = process.argv.includes('--check');
+const CHECK_LINKS = process.argv.includes('--check-links');
 
 function loadJson(name) {
   const file = path.join(ROOT, 'data', `${name}.json`);
@@ -48,7 +50,7 @@ data.schedule.weeks.forEach((w) => {
   need(Number.isInteger(w.number) && w.title, 'each schedule week needs a number and title');
   (w.sessions || []).forEach((s) => {
     need(/^\d{4}-\d{2}-\d{2}$/.test(s.date || ''), `week ${w.number}: session dates must be YYYY-MM-DD (got ${s.date})`);
-    need(['lecture', 'lab'].includes(s.type), `week ${w.number}: session type must be 'lecture' or 'lab'`);
+    need(['lecture', 'lab', 'session', 'showcase'].includes(s.type), `week ${w.number}: session type must be 'lecture', 'lab', 'session' or 'showcase'`);
     need(s.title, `week ${w.number}: every session needs a title`);
     Object.keys(s.materials || {}).forEach((k) => need(MATERIAL_KEYS.includes(k), `week ${w.number}: unknown material key '${k}'`));
   });
@@ -153,4 +155,28 @@ for (const [file, html] of Object.entries(pages)) {
 if (CHECK) {
   if (stale) process.exit(1);
   console.log('Generated pages are up to date.');
+}
+
+// ---- optional: external link check -------------------------------------------------------
+if (CHECK_LINKS) {
+  const urls = new Set();
+  for (const html of Object.values(pages)) {
+    const re = /(?:href|src)="(https?:\/\/[^"]+)"/g; let m;
+    while ((m = re.exec(html))) urls.add(m[1].replace(/&amp;/g, '&'));
+  }
+  const check = async (url) => {
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 15000);
+    try {
+      let r = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: ctl.signal, headers: { 'user-agent': 'Mozilla/5.0 (link check)' } });
+      if (r.status === 405 || r.status === 403) r = await fetch(url, { method: 'GET', redirect: 'follow', signal: ctl.signal, headers: { 'user-agent': 'Mozilla/5.0 (link check)' } });
+      return [url, r.status];
+    } catch (err) { return [url, `error: ${err.name}`]; } finally { clearTimeout(t); }
+  };
+  Promise.all([...urls].map(check)).then((results) => {
+    // 999 is LinkedIn's bot block: the page cannot be verified from a script, but it is not a dead link.
+    const bad = results.filter(([, st]) => typeof st !== 'number' || (st >= 400 && st !== 999));
+    results.forEach(([u, st]) => console.log(`${String(st === 999 ? 'n/a' : st).padEnd(6)} ${u}${st === 999 ? '  (blocks automated checks; verify in a browser)' : ''}`));
+    if (bad.length) { console.error(`\n${bad.length} external link(s) failed.`); process.exit(1); }
+    console.log(`\nAll ${results.length} external links responded.`);
+  });
 }

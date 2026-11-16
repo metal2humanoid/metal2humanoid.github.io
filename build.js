@@ -45,6 +45,19 @@ need(!data.site.basePath || /^\/[^/]/.test(data.site.basePath), "site.basePath m
 need(/@/.test(data.site.contact.course.email), 'site.contact.course.email is required');
 need(/@/.test(data.site.contact.sponsor.email), 'site.contact.sponsor.email is required');
 
+if (data.site.apply && data.site.apply.enabled) {
+  const a = data.site.apply;
+  need(/^https?:\/\//.test(a.url || ''), 'site.apply.url must be an absolute URL');
+  need(a.headline && a.buttonLabel, 'site.apply needs a headline and a buttonLabel');
+  need(!a.deadline || /^\d{4}-\d{2}-\d{2}$/.test(a.deadline), 'site.apply.deadline must be YYYY-MM-DD');
+  const today = new Date().toISOString().slice(0, 10);
+  if (a.deadline && a.deadline < today) {
+    console.warn(`warning: the application deadline ${a.deadline} has passed; the apply banner and button are not rendered. Update site.apply and site.status.registration in data/site.json.`);
+    a.enabled = false;
+    data.site.status.registration.open = false;
+  }
+}
+
 const MATERIAL_KEYS = ['slides', 'notes', 'recording', 'instructions', 'code', 'notebook'];
 data.schedule.weeks.forEach((w) => {
   need(Number.isInteger(w.number) && w.title, 'each schedule week needs a number and title');

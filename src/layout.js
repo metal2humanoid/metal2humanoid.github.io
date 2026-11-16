@@ -1,5 +1,5 @@
 'use strict';
-const { esc, linkAttrs, icons } = require('./html');
+const { esc, linkAttrs, icons, isExternal } = require('./html');
 const { mark } = require('./svg');
 
 /**
@@ -22,6 +22,9 @@ function page(opts) {
     let href = item.href;
     if (onIndex && href.startsWith('index.html#')) href = href.slice('index.html'.length);
     const isCurrent = current && item.href === current;
+    if (isExternal(href)) {   // e.g. the application form: no root prefix, opens as an external link
+      return `<li><a ${linkAttrs(href, item.cta ? 'class="nav-cta"' : '')}>${esc(item.label)}</a></li>`;
+    }
     return `<li><a href="${esc(root + href)}"${isCurrent ? ' aria-current="page"' : ''}>${esc(item.label)}</a></li>`;
   }).join('');
 
@@ -61,7 +64,7 @@ ${site.draft && site.draft.enabled ? '<meta name="robots" content="noindex, nofo
     </nav>
   </div>
 </header>
-${site.draft && site.draft.enabled ? `<div class="draft-banner" role="note"><div class="wrap">${esc(site.draft.notice)}</div></div>` : ''}
+${applyBanner(site, path)}${site.draft && site.draft.enabled ? `<div class="draft-banner" role="note"><div class="wrap">${esc(site.draft.notice)}</div></div>` : ''}
 <main id="main" tabindex="-1">
 ${body}
 </main>
@@ -94,4 +97,21 @@ ${body}
 `;
 }
 
-module.exports = { page };
+/** The application call to action under the header: a full-width band with a large button. Not on the 404 page. */
+function applyBanner(site, path) {
+  const a = site.apply;
+  if (!a || !a.enabled || path === '404.html') return '';
+  return `<section class="apply-banner" aria-labelledby="apply-title">
+  <div class="wrap apply-inner">
+    <div class="apply-copy">
+      ${a.kicker ? `<p class="apply-kicker">${esc(a.kicker)}</p>` : ''}
+      <h2 id="apply-title" class="apply-headline">${esc(a.headline)}</h2>
+      ${a.text ? `<p class="apply-text">${esc(a.text)}</p>` : ''}
+    </div>
+    <p class="apply-action"><a class="button apply-button" ${linkAttrs(a.url)}>${esc(a.buttonLabel || 'Apply')} ${icons.external}</a>${a.deadlineDisplay ? `<span class="apply-due">Deadline: ${esc(a.deadlineDisplay)}</span>` : ''}</p>
+  </div>
+</section>
+`;
+}
+
+module.exports = { page, applyBanner };

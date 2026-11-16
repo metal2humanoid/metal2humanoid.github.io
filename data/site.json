@@ -1,5 +1,5 @@
 {
-  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' is the single place to change who receives course and sponsorship email (name, email, title shown next to the address). 'draft.enabled' adds a visible notice, a noindex/nofollow meta tag, and a robots.txt that disallows crawling; set it to false when the content is final.",
+  "_doc": "Site-wide settings. 'basePath' must start with a slash when deploying under a repository subpath (e.g. '/metal2humanoid'); leave it empty for a root deployment. 'contact' is the single place to change who receives course and sponsorship email (name, email, title shown next to the address). 'draft.enabled' adds a visible notice, a noindex/nofollow meta tag, and a robots.txt that disallows crawling; set it to false when the content is final. 'apply' is the application call to action: when enabled (and its deadline has not passed at build time) a banner is shown under the header on every page, an 'Apply' pill in the navigation, and the hero's first button; set enabled to false or let the deadline pass to remove it.",
   "name": "Metal2Humanoid",
   "tagline": "Building a Humanoid Robot from the Ground Up",
   "description": "Metal2Humanoid is a proposed non-credit MIT IAP 2027 course: four weeks of integrated lecture-lab sessions in which every student builds an actuator, teams assemble and program a custom humanoid, and the course ends with a public showcase on January 29, 2027.",
@@ -29,6 +29,11 @@
     {
       "label": "Sponsor",
       "href": "sponsor.html"
+    },
+    {
+      "label": "Apply",
+      "href": "https://docs.google.com/forms/d/e/1FAIpQLSeh2ja-oTR3K2uPcpawhoVvlqWZJ42Vkevi3lGKaVPM573SNg/viewform",
+      "cta": true
     }
   ],
   "contact": {
@@ -57,10 +62,10 @@
     "approvalLabel": "Proposed",
     "approvalNote": "Proposed as a non-credit MIT IAP 2027 activity; approval, meeting times, and rooms are provisional.",
     "registration": {
-      "open": false,
-      "url": null,
-      "label": "Register",
-      "note": "Registration is not open yet. Details will be posted here once the offering is approved and scheduled."
+      "open": true,
+      "url": "https://docs.google.com/forms/d/e/1FAIpQLSeh2ja-oTR3K2uPcpawhoVvlqWZJ42Vkevi3lGKaVPM573SNg/viewform",
+      "label": "Apply to attend",
+      "note": "Applications from current MIT students are open until Friday, December 12, 2026."
     }
   },
   "hbrn": {
@@ -83,5 +88,16 @@
   "draft": {
     "enabled": true,
     "notice": "Updated November 4, 2026. Items marked provisional are being finalized with the course team."
+  },
+  "apply": {
+    "enabled": true,
+    "kicker": "Current MIT students · applications open",
+    "headline": "Apply by Friday, December 12 to take Metal2Humanoid this IAP",
+    "text": "About 20 places in six teams, January 4–29, 2027, non-credit. No prior hardware, control, or machine learning experience is required. The application is a short Google Form.",
+    "url": "https://docs.google.com/forms/d/e/1FAIpQLSeh2ja-oTR3K2uPcpawhoVvlqWZJ42Vkevi3lGKaVPM573SNg/viewform",
+    "buttonLabel": "Apply now",
+    "deadline": "2026-12-12",
+    "deadlineDisplay": "Friday, December 12, 2026",
+    "audience": "current MIT undergraduate and graduate students"
   }
 }

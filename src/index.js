@@ -54,8 +54,9 @@ function renderHero(data) {
   const { site, course } = data;
   const reg = site.status.registration;
   const regAction = reg.open && reg.url
-    ? `<a class="button button-primary" ${linkAttrs(reg.url)}>${esc(reg.label || 'Register')}</a>`
+    ? `<a class="button button-primary" ${linkAttrs(reg.url)}>${esc(reg.label || 'Register')} ${icons.external}</a>`
     : '';
+  const apply = site.apply && site.apply.enabled ? site.apply : null;
   const heroImg = course.hero && course.hero.image;
   return `<section class="hero${heroImg ? ' has-image' : ''}" id="overview" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
@@ -66,11 +67,12 @@ function renderHero(data) {
     <p class="hero-lede">${esc(course.intro)}</p>
     <p class="hero-secondary">${esc(course.introSecondary)}</p>
     <p class="actions">
-      <a class="button button-primary" ${linkAttrs(course.planPdf || site.links.syllabusPdf)}>${icons.download} View the course plan <span class="muted-inline">(PDF)</span></a>
+      ${regAction}
+      <a class="button${regAction ? '' : ' button-primary'}" ${linkAttrs(course.planPdf || site.links.syllabusPdf)}>${icons.download} View the course plan <span class="muted-inline">(PDF)</span></a>
       <a class="button" href="#schedule">Explore the schedule</a>
       <a class="button" href="sponsor.html">Support the course</a>
-      ${regAction}
     </p>
+    ${apply ? `<p class="apply-deadline"><strong>Applications close ${esc(apply.deadlineDisplay || apply.deadline)}.</strong> Open to ${esc(apply.audience || 'students')}.</p>` : ''}
     <p class="status-line"><strong>Status:</strong> ${esc(site.status.approvalNote)} ${esc(reg.note)} Questions: <a href="${esc(mailto(site.contact.course.email, site.contact.course.subject))}">${esc(site.contact.course.email)}</a>.</p>
   </div>
   ${heroImg ? `<figure class="hero-figure">
@@ -320,7 +322,7 @@ function renderContact(data) {
   return `<section class="section section-contact" id="contact" aria-labelledby="contact-title">
   <div class="wrap">
     <h2 id="contact-title">Contact</h2>
-    <p>Questions about the course: <a href="${esc(mailto(c.email, c.subject))}">${esc(c.name)} (${esc(c.email)})</a>. ${esc(site.status.registration.note)}</p>
+    <p>Questions about the course: <a href="${esc(mailto(c.email, c.subject))}">${esc(c.name)} (${esc(c.email)})</a>. ${esc(site.status.registration.note)}${site.apply && site.apply.enabled ? ` <a ${linkAttrs(site.apply.url)}>Application form ${icons.external}</a>.` : ''}</p>
     <p>Interested in supporting the course with hardware, tools, or funding? <a href="sponsor.html">See how to sponsor ${icons.arrow}</a></p>
   </div>
 </section>`;
